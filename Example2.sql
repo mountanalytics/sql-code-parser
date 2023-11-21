@@ -1,5 +1,5 @@
 -- Step 1: Insert data into db1.Loans from db2.Collateral and db3.Loan_transaction
-INSERT INTO db1.Loans (Underlying_value, Asset_type, Amount, Timestamp, LtV)
+INSERT INTO db1.Loans (Underlying_value, Asset_type, Amount, Timestamp, LtV, Amount_loan)
 SELECT
     c.Underlying_value + c.Second_underlying_value AS Underlying_value,
     c.Asset_type,
