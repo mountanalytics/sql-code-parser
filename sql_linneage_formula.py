@@ -5,11 +5,24 @@ import copy
 import Levenshtein
 import difflib
 
+def sub_query(src_cols):
+    src_cols_dub = []
+
+    for i in range(len(src_cols)):
+        src_cols_dub.append([])  # Initialize an empty list for each row in src_cols_dub
+        
+        for j in range(len(src_cols[i])):
+            if 'SubQuery' not in str(src_cols[i][j].parent_candidates) or j == 0:
+                src_cols_dub[i].append(src_cols[i][j])
+    return src_cols_dub 
+
 def sqllineage(sqlFile):
     sql_parse_obj = LineageRunner(sqlFile,dialect='ansi')
     src_tables = sql_parse_obj.source_tables
     src_cols = sql_parse_obj.get_column_lineage()
-    return src_cols,src_tables
+    src_cols_sub = sub_query(src_cols)
+    return src_cols,src_tables, src_cols_sub
+
 def Split_formula(sqlFile,src_cols):
     tokenized_sql = sqlFile.split()
         #------------------------------------------------- Find formulas in SQL code ------------------------------------------
@@ -65,9 +78,6 @@ def Split_formula(sqlFile,src_cols):
                     formulas.append(new_formula)
                     formulas[-1].pop(j)
                     formulas[-1][j:j] = formulas[i][:-2]
-    
-
-    
     
     temp = [] 
     formulas_copy = copy.deepcopy(formulas)
@@ -157,33 +167,37 @@ def match_strings(list1, list2, threshold):
     return matches
 fd = open('Example3.sql', 'r',encoding='utf-8')
 sqlFile = fd.read()
-fd2 = open('Example2.sql', 'r',encoding='utf-8')
+fd2 = open('Example3.sql', 'r',encoding='utf-8')
 sqlFile2 = fd2.read()
 #def general(sqlFile, sqlFile2):
-src_cols,src_tables = sqllineage(sqlFile)
+src_cols,src_tables,src_cols_sub = sqllineage(sqlFile)
 formulas, formulas_without_col, formula_amount = Split_formula(sqlFile,src_cols)
 string_col = convert(src_cols)
+string_col_sub = convert(src_cols_sub)
 string_table = convert(src_tables)
 string_formula = convert(formulas)
 formulas_without_col = convert(formulas_without_col)
   
     
-src_cols2,src_tables2 = sqllineage(sqlFile2)
+src_cols2,src_tables2,src_cols2_sub = sqllineage(sqlFile2)
 formulas2,formulas_without_col2, formula_amount2 = Split_formula(sqlFile2,src_cols2)
 string_col2 = convert(src_cols2)
+string_col2_sub = convert(src_cols2_sub)
 string_table2 = convert(src_tables2)
 string_formula2 = convert(formulas2)
 formulas_without_col2 = convert(formulas_without_col2)
     #---------------------------------------------- compare -------------------------------------------------------
-threshold_value_cols = 0.9
-threshold_value_formula = 0.9
+threshold_value_cols = 0.95
+threshold_value_formula = 0.95
 matching_cols = match_strings(string_col, string_col2, threshold_value_cols)
+Matching_cols_subquery = match_strings(string_col_sub, string_col2_sub, threshold_value_cols)
 matching_tables = match_strings(string_table, string_table2, threshold_value_cols)
 matching_formulas = match_strings(string_formula, string_formula2, threshold_value_formula)
 matching_formulas_without_col = match_strings(formulas_without_col, formulas_without_col2, threshold_value_formula)
     
     
 per_match_cols = len(matching_cols) / min(len(src_cols),len(src_cols2))
+per_match_cols_subquery = len(Matching_cols_subquery) / min(len(src_cols),len(src_cols2))
 per_match_tables = len(matching_tables) / min(len(src_tables),len(src_tables2))
 per_match_for_with = len(matching_formulas) / min(formula_amount,formula_amount2)
 per_match_for_without = len(matching_formulas_without_col)/ min(formula_amount,formula_amount2)
@@ -198,6 +212,8 @@ per_match_for_without = len(matching_formulas_without_col)/ min(formula_amount,f
 
 per_match_overall_without = (1/3) * per_match_cols + (1/3) * per_match_tables + (1/3) * per_match_for_without
 per_match_overall_with = (1/3) * per_match_cols + (1/3) * per_match_tables + (1/3) * per_match_for_with
+per_match_overall_without_subquery = (1/3) * per_match_cols_subquery + (1/3) * per_match_tables + (1/3) * per_match_for_without
+per_match_overall_with_subquery = (1/3) * per_match_cols_subquery + (1/3) * per_match_tables + (1/3) * per_match_for_with
 if per_match_overall_without == per_match_overall_with and per_match_overall_without == 1:
     print('SQL Code is exactly the same')
 if per_match_overall_without != per_match_overall_with and per_match_overall_without == 1:
