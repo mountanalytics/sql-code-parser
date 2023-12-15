@@ -1,0 +1,78 @@
+{
+	"name": "MER_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SchuldpapierenCSV",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SchuldpapierenSQL",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "timematurity"
+				},
+				{
+					"name": "MarketValue"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ISIN as string,",
+				"          {Nominal value} as string,",
+				"          Yield as string,",
+				"          {Start date} as string,",
+				"          {End date} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 derive({Time to maturity} = (toTimestamp({End date}, 'yyyy-MM-dd') - toTimestamp('2023-11-01', 'yyyy-MM-dd')) / 86400000) ~> timematurity",
+				"timematurity derive({Market Value} = toInteger({Nominal value}) / power((1+toFloat(Yield)),({Time to maturity}/365)),",
+				"          {Accrued Interest} = -round(toInteger({Nominal value})*(power(((1+toFloat(Yield))),(-({Time to maturity}+1)/365)) - power((1+toFloat(Yield)),(-({Time to maturity}-30)/365))),0)) ~> MarketValue",
+				"MarketValue sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ISIN as string,",
+				"          Nominal_value as integer,",
+				"          Yield as decimal(10,9),",
+				"          Start_date as date,",
+				"          End_date as date,",
+				"          Time_to_maturity as integer,",
+				"          Market_value as integer,",
+				"          Accrued_interest as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     preSQLs:['delete from Schuldpapieren'],",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ISIN,",
+				"          Nominal_value = {Nominal value},",
+				"          Yield,",
+				"          Start_date = {Start date},",
+				"          End_date = {End date},",
+				"          Time_to_maturity = {Time to maturity},",
+				"          Market_value = {Market Value},",
+				"          Accrued_interest = {Accrued Interest}",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}
