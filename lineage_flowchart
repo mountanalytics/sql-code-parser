@@ -1,0 +1,14 @@
+// Lineage Flowchart
+digraph {
+	Input_table_Input_column1 [label=Input_table_Input_column1]
+	Input_table_Input_column2 [label=Input_table_Input_column2]
+	Transformation_table_Transformation_column1 [label=Transformation_table_Transformation_column1]
+	Transformation_table_Transformation_column2 [label=Transformation_table_Transformation_column2]
+	Output_table_Output_column1 [label=Output_table_Output_column1]
+	Output_table_Output_column2 [label=Output_table_Output_column2]
+	Input_table_Input_column1 -> Transformation_table_Transformation_column1
+	Input_table_Input_column1 -> Transformation_table_Transformation_column2
+	Input_table_Input_column2 -> Transformation_table_Transformation_column2
+	Transformation_table_Transformation_column2 -> Output_table_Output_column1
+	Transformation_table_Transformation_column2 -> Output_table_Output_column2
+}

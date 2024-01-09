@@ -1,4 +1,5 @@
 import json
+import copy
 
 def Strip_script(Input_string,Scriptlines):
     for i in range(len(Scriptlines)):
@@ -49,17 +50,25 @@ for i in range(len(Mapping)):
         index_trans.append(i)
         
 trasformation_lineage = [row for idx, row in enumerate(Mapping) if idx not in index_direct]
-
+Source1 = data['properties']['typeProperties']['sources'][0]['dataset']['referenceName']
+Sink1 = data['properties']['typeProperties']['sinks'][0]['dataset']['referenceName']
 for i in range(len(direct_lineage)):
     index_of_as = direct_lineage[i].find("=")
     
     if index_of_as != -1:
         # Extract the substring before "as"
         direct_lineage[i] = direct_lineage[i][:index_of_as].strip()
+    direct_lineage[i] = Sink1 + '.' + direct_lineage[i]
 
 for i in range(len(Input_table)):
     Input_table[i] = Input_table[i].replace('{','').replace('}','')
-direct_lineage = list(zip(direct_lineage, Input_table))
+
+#------------------------- watch if multiple input tables -------------------------
+Source_table = copy.deepcopy(Input_table)
+for i in range(len(Source_table)):   
+    Source_table[i] = Source1 + '.' + Input_table[i]
+direct_lineage = list(zip(Source_table, direct_lineage))
+#----------------------------------------------------------------------------------
 
 output_table = []
 trans_table = []
@@ -112,16 +121,99 @@ for idx, transformation in enumerate(transformations):
         if input_value in transformation:
             input_lineage.append({"input_value": input_value, "row_index": idx})
 
+# ------------------------- watch multiple input tables -----------------------
+for i in range(len(transformations)):
+    for j in range(len(Input_table)):
+        if Input_table[j] in transformations[i]:
+            transformations[i] = transformations[i].replace(Input_table[j],Source_table[j])
+#----------------------------------------------------------------
+
 combined_lineage = {}
 for entry in input_lineage:
     row_index = entry["row_index"]
     if row_index not in combined_lineage:
         combined_lineage[row_index] = []
     combined_lineage[row_index].append(entry["input_value"])
+# ------------------------- watch multiple input/output tables -----------------------
+for i in range(len(output_table)):
+    output_table[i] = Sink1 + '.' + output_table[i]
+for i in range(len(combined_lineage)):
+    for j in range(len(combined_lineage[i])):
+        for k in range(len(Input_table)):
+            if Input_table[k] == combined_lineage[i][j]:
+                combined_lineage[i][j] = Source_table[k]
+             
+#-----------------------------------------------------------------------
 
+lineage_table = list(zip(output_table, combined_lineage.values()))
 output_table = list(zip(output_table, transformations, combined_lineage.values()))
 
-#combine output table and direct_lineage where we have the input columns, output columns, and transformations. Linked to the Mapping table.
+com_lineage = [[] for _ in range(max(max(index_direct),max(index_trans))+1)]
+for i in range(len(index_direct)):
+    for j in range(len(com_lineage)):
+        if index_direct[i] == j:
+            com_lineage[j] = direct_lineage[i]
+            break
+for i in range(len(index_trans)):
+    for j in range(len(com_lineage)):
+        if index_trans[i] == j:
+            com_lineage[j] = output_table[i]
+            break
+
+result_table_lineage = []
+for table_name, columns in lineage_table:
+    for column_name in columns:
+        result_table_lineage .append((column_name,table_name))
+
+result_table_lineage = direct_lineage + result_table_lineage
+
+unique_values = list(set(item[0] for item in result_table_lineage))
+unique_values2 = list(set(item[1] for item in result_table_lineage))
+unique_values = unique_values + unique_values2
+
+source_col, sink_col = zip(*result_table_lineage)
+
+plot_source = []
+plot_sink = []
+for i in range(len(source_col)):
+    for j in range(len(unique_values)):
+        if source_col[i] == unique_values[j]:
+            plot_source.append(j)
+            break
+
+for i in range(len(sink_col)):
+    for j in range(len(unique_values)):
+        if sink_col[i] == unique_values[j]:
+            plot_sink.append(j)
+            break
+
+import plotly.graph_objects as go
+from plotly.offline import plot
+
+# Define the nodes and links
+values = [1] * len(plot_source)
+
+# Create the Sankey diagram
+fig = go.Figure(data=[go.Sankey(
+    node=dict(
+        pad=100,
+        thickness=20,
+        #line=dict(color="blue", width=0.05),
+        label=unique_values
+    ),
+    link=dict(
+        arrowlen=22,
+        source=plot_source,
+        target=plot_sink,
+        value=values,
+    )
+)])
+
+# Show the plot
+plot(fig, validate=False)
+
+
+
 
 
 

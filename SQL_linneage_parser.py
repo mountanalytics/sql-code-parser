@@ -134,100 +134,12 @@ def Split_formula(sqlFile,src_cols):    #Function for splitting the transformati
         
     return formulas, formula_string, formula_amount
 
-
-#------------------------------ Functions for comparisson of two sql codes (not that usefull at this time) -------------------------------
-def convert(src_cols):
-    string_col = []
-    for i in range(len(src_cols)):
-        string_col.append(str(src_cols[i]))
-    return string_col
-
-def string_similarity(string1, string2):
-    distance = Levenshtein.distance(string1, string2)
-    max_length = max(len(string1), len(string2))
-    similarity_ratio = 1 - (distance / max_length)
-    return similarity_ratio
-
-def find_differences(string1, string2):
-    differ = difflib.Differ()
-    diff = list(differ.compare(string1.split(), string2.split()))
-
-    differing_words_1 = [item.split(None, 1)[-1] for item in diff if item.startswith('- ')]
-    differing_words_2 = [item.split(None, 1)[-1] for item in diff if item.startswith('+ ')]
-
-    return differing_words_1, differing_words_2
-
-def match_strings(list1, list2, threshold):
-    matches = []
-
-    for str1 in list1:
-        for str2 in list2:
-            similarity = string_similarity(str1, str2)
-            if similarity >= threshold:
-                differences = find_differences(str1, str2)
-                matches.append((str1, str2, similarity, differences))
-
-    return matches
-# ------------------------------------------------ Uptill here ---------------------------------------------
+# call the SQL file you want to parse
 fd = open('Example.sql', 'r',encoding='utf-8')
 sqlFile = fd.read()
-fd2 = open('Example2.sql', 'r',encoding='utf-8')
-sqlFile2 = fd2.read()
 #def general(sqlFile, sqlFile2):
 src_cols,src_tables,src_cols_sub = sqllineage(sqlFile)
 formulas, formulas_without_col, formula_amount = Split_formula(sqlFile,src_cols)
-string_col = convert(src_cols)
-string_col_sub = convert(src_cols_sub)
-string_table = convert(src_tables)
-string_formula = convert(formulas)
-formulas_without_col = convert(formulas_without_col)
-  
-    
-src_cols2,src_tables2,src_cols2_sub = sqllineage(sqlFile2)
-formulas2,formulas_without_col2, formula_amount2 = Split_formula(sqlFile2,src_cols2)
-string_col2 = convert(src_cols2)
-string_col2_sub = convert(src_cols2_sub)
-string_table2 = convert(src_tables2)
-string_formula2 = convert(formulas2)
-formulas_without_col2 = convert(formulas_without_col2)
-
-#------------------------------------- compare functions (not that usefull at this time) -------------------------------------------------------
-threshold_value_cols = 0.95
-threshold_value_formula = 0.95
-matching_cols = match_strings(string_col, string_col2, threshold_value_cols)
-Matching_cols_subquery = match_strings(string_col_sub, string_col2_sub, threshold_value_cols)
-matching_tables = match_strings(string_table, string_table2, threshold_value_cols)
-matching_formulas = match_strings(string_formula, string_formula2, threshold_value_formula)
-matching_formulas_without_col = match_strings(formulas_without_col, formulas_without_col2, threshold_value_formula)
-    
-    
-per_match_cols = len(matching_cols) / min(len(src_cols),len(src_cols2))
-per_match_cols_subquery = len(Matching_cols_subquery) / min(len(src_cols),len(src_cols2))
-per_match_tables = len(matching_tables) / min(len(src_tables),len(src_tables2))
-per_match_for_with = len(matching_formulas) / min(formula_amount,formula_amount2)
-per_match_for_without = len(matching_formulas_without_col)/ min(formula_amount,formula_amount2)
-#    return per_match_cols, per_match_tables, per_match_for_with, per_match_for_without
-
-
-#fd = open('Example3.sql', 'r',encoding='utf-8')
-#sqlFile = fd.read()
-#fd2 = open('Example2.sql', 'r',encoding='utf-8')
-#sqlFile2 = fd2.read()
-#per_match_cols, per_match_tables, per_match_for_with, per_match_for_without = general(sqlFile, sqlFile2)
-
-per_match_overall_without = (1/3) * per_match_cols + (1/3) * per_match_tables + (1/3) * per_match_for_without
-per_match_overall_with = (1/3) * per_match_cols + (1/3) * per_match_tables + (1/3) * per_match_for_with
-per_match_overall_without_subquery = (1/3) * per_match_cols_subquery + (1/3) * per_match_tables + (1/3) * per_match_for_without
-per_match_overall_with_subquery = (1/3) * per_match_cols_subquery + (1/3) * per_match_tables + (1/3) * per_match_for_with
-if per_match_overall_without == per_match_overall_with and per_match_overall_without == 1:
-    print('SQL Code is exactly the same')
-if per_match_overall_without != per_match_overall_with and per_match_overall_without == 1:
-    print('SQL Code has the same functionality but different syntax')
-    
-# ------------------------------------------------ Uptill here ---------------------------------------------           
-
-
-
 
 
 
