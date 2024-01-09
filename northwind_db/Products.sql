@@ -1,3 +1,15 @@
+
+SELECT a.* 
+INTO MA_NorthWindDB.dbo.Products
+FROM
+(
+select * from 
+MA_NorthWindDB.dbo.Products_part01
+UNION
+select * from 
+MA_NorthWindDB.dbo.Products_part02) a
+
+
 SELECT 
 	ProductID, 
 	ProductName,
