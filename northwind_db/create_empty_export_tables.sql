@@ -274,3 +274,24 @@ CREATE TABLE "Order_Details_1998_Export" (
 	"perc_of_product_quantity_year" "real" NOT NULL
 )
 GO
+
+
+
+CREATE TABLE "Region_Export" ( 
+	"RegionID" "int" NOT NULL ,
+	"RegionDescription" "nchar" (50) NOT NULL
+) 
+GO
+
+CREATE TABLE "Territories_Export" (
+	"TerritoryID" "nvarchar" (20) NOT NULL ,
+	"TerritoryDescription" "nchar" (50) NOT NULL ,
+        "RegionID" [int] NOT NULL
+) 
+GO
+
+CREATE TABLE "EmployeeTerritories_Export" (
+	"EmployeeID" "int" NOT NULL,
+	"TerritoryID" "nvarchar" (20) NOT NULL
+) 
+GO
