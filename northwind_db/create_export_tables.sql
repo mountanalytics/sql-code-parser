@@ -24,14 +24,14 @@ GO
   Drop the tables if they exist 
 */
 
-if exists (select * from sysobjects where id = object_id('dbo.Order Details_1996_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order Details_1996_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_EXPORT') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1996_EXPORT"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Order Details_1997_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order Details_1997_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1997_EXPORT') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1997_EXPORT"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Order Details_1998_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order Details_1998_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1998_EXPORT') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1998_EXPORT"
 GO
   
 if exists (select * from sysobjects where id = object_id('dbo.Orders_1996_EXPORT') and sysstat & 0xf = 3)
@@ -92,5 +92,185 @@ CREATE TABLE "Employees_Export" (
 	"HomePhone" nvarchar (24) NULL ,
 	"Extension" nvarchar (4) NULL ,
 	"ReportsTo" "int" NULL 
+)
+GO
+
+
+CREATE TABLE "Categories_Export" (
+	"CategoryID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CategoryName" nvarchar (15) NOT NULL ,
+	"Description" "ntext" NULL 
+)
+
+
+CREATE TABLE "Customers_Export" (
+	"CustomerID" nchar (5) NOT NULL ,
+	"CompanyName" nvarchar (40) NOT NULL ,
+	"ContactName" nvarchar (30) NULL ,
+	"ContactTitle" nvarchar (30) NULL ,
+	"Address" nvarchar (60) NULL ,
+	"City" nvarchar (15) NULL ,
+	"Region" nvarchar (15) NULL ,
+	"PostalCode" nvarchar (10) NULL ,
+	"Country" nvarchar (15) NULL ,
+	"Phone" nvarchar (24) NULL ,
+	"Fax" nvarchar (24) NULL 
+)
+GO
+
+
+CREATE TABLE "Shippers_Export" (
+	"ShipperID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CompanyName" nvarchar (40) NOT NULL ,
+	"Phone" nvarchar (24) NULL 
+)
+GO
+
+CREATE TABLE "Suppliers_Export" (
+	"SupplierID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CompanyName" nvarchar (40) NOT NULL ,
+	"ContactName" nvarchar (30) NULL ,
+	"ContactTitle" nvarchar (30) NULL ,
+	"Address" nvarchar (60) NULL ,
+	"City" nvarchar (15) NULL ,
+	"Region" nvarchar (15) NULL ,
+	"PostalCode" nvarchar (10) NULL ,
+	"Country" nvarchar (15) NULL ,
+	"Phone" nvarchar (24) NULL ,
+	"Fax" nvarchar (24) NULL 
+)
+GO
+
+
+
+CREATE TABLE "Orders_1996_Export" (
+	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CustomerID" nchar (5) NULL ,
+	"EmployeeID" "int" NULL ,
+	"OrderDate" "datetime" NULL ,
+	"OrderDateMonth" "datetime" NULL ,
+	"RequiredDate" "datetime" NULL ,
+	"Days_order_shipment" "int" NULL ,
+	"ShippedDate" "datetime" NULL ,
+	"ShipVia" "int" NULL ,
+	"Freight" "money" NULL CONSTRAINT "DF_Orders_Freight" DEFAULT (0),
+	"ShipName" nvarchar (40) NULL ,
+	"ShipAddress" nvarchar (60) NULL ,
+	"ShipCity" nvarchar (15) NULL ,
+	"ShipRegion" nvarchar (15) NULL ,
+	"ShipPostalCode" nvarchar (10) NULL ,
+	"ShipCountry" nvarchar (15) NULL,
+	"ShipAddressConcat" nvarchar (120) NULL 
+)
+GO
+
+	CREATE TABLE "Orders_1997_Export" (
+	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CustomerID" nchar (5) NULL ,
+	"EmployeeID" "int" NULL ,
+	"OrderDate" "datetime" NULL ,
+	"OrderDateMonth" "datetime" NULL ,
+	"RequiredDate" "datetime" NULL ,
+	"Days_order_shipment" "int" NULL ,
+	"ShippedDate" "datetime" NULL ,
+	"ShipVia" "int" NULL ,
+	"Freight" "money" NULL CONSTRAINT "DF_Orders_Freight" DEFAULT (0),
+	"ShipName" nvarchar (40) NULL ,
+	"ShipAddress" nvarchar (60) NULL ,
+	"ShipCity" nvarchar (15) NULL ,
+	"ShipRegion" nvarchar (15) NULL ,
+	"ShipPostalCode" nvarchar (10) NULL ,
+	"ShipCountry" nvarchar (15) NULL,
+	"ShipAddressConcat" nvarchar (120) NULL 
+)
+GO
+
+	
+GO
+	CREATE TABLE "Orders_1998_Export" (
+	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CustomerID" nchar (5) NULL ,
+	"EmployeeID" "int" NULL ,
+	"OrderDate" "datetime" NULL ,
+	"OrderDateMonth" "datetime" NULL ,
+	"RequiredDate" "datetime" NULL ,
+	"Days_order_shipment" "int" NULL ,
+	"ShippedDate" "datetime" NULL ,
+	"ShipVia" "int" NULL ,
+	"Freight" "money" NULL CONSTRAINT "DF_Orders_Freight" DEFAULT (0),
+	"ShipName" nvarchar (40) NULL ,
+	"ShipAddress" nvarchar (60) NULL ,
+	"ShipCity" nvarchar (15) NULL ,
+	"ShipRegion" nvarchar (15) NULL ,
+	"ShipPostalCode" nvarchar (10) NULL ,
+	"ShipCountry" nvarchar (15) NULL,
+	"ShipAddressConcat" nvarchar (120) NULL 
+)
+	
+GO
+CREATE TABLE "Products_Export" (
+	"ProductID" "int" IDENTITY (1, 1) NOT NULL ,
+	"ProductName" nvarchar (40) NOT NULL ,
+	"beverage" nvarchar (40) NOT NULL ,
+	"SupplierID" "int" NULL ,
+	"CategoryID" "int" NULL ,
+	"QuantityPerUnit" nvarchar (20) NULL ,
+	"UnitPrice" "money" NULL ,
+	"StockShortage" nvarchar (40) NOT NULL ,
+	"UnitsInStock" "smallint" NULL ,
+	"UnitsOnOrder" "smallint" NULL ,
+	"ReorderLevel" "smallint" NULL ,
+	"Discontinued" "bit" 
+)
+GO
+
+
+CREATE TABLE "Order_Details_1996_Export" (
+	"OrderID" "int" NOT NULL ,
+	"ProductID" "int" NOT NULL ,
+	"UnitPrice" "money" NOT NULL ,
+	"Quantity" "smallint" NOT NULL ,
+	"Discount" "real" NOT NULL ,
+	"NrOfProducts" "int" NOT NULL ,
+	"avg_order_unitprice" "money" NOT NULL ,
+	"max_order_discount" "real" NOT NULL ,
+	"min_order_discount" "real" NOT NULL ,
+	"total_quantity" "smallint" NOT NULL ,
+	"product_quantity_year" "smallint" NOT NULL ,
+	"perc_of_product_quantity_year" "real" NOT NULL
+)
+GO
+
+
+CREATE TABLE "Order_Details_1997_Export" (
+	"OrderID" "int" NOT NULL ,
+	"ProductID" "int" NOT NULL ,
+	"UnitPrice" "money" NOT NULL ,
+	"Quantity" "smallint" NOT NULL ,
+	"Discount" "real" NOT NULL ,
+	"NrOfProducts" "int" NOT NULL ,
+	"avg_order_unitprice" "money" NOT NULL ,
+	"max_order_discount" "real" NOT NULL ,
+	"min_order_discount" "real" NOT NULL ,
+	"total_quantity" "smallint" NOT NULL ,
+	"product_quantity_year" "smallint" NOT NULL ,
+	"perc_of_product_quantity_year" "real" NOT NULL
+)
+GO
+
+
+CREATE TABLE "Order_Details_1998_Export" (
+	"OrderID" "int" NOT NULL ,
+	"ProductID" "int" NOT NULL ,
+	"UnitPrice" "money" NOT NULL ,
+	"Quantity" "smallint" NOT NULL ,
+	"Discount" "real" NOT NULL ,
+	"NrOfProducts" "int" NOT NULL ,
+	"avg_order_unitprice" "money" NOT NULL ,
+	"max_order_discount" "real" NOT NULL ,
+	"min_order_discount" "real" NOT NULL ,
+	"total_quantity" "smallint" NOT NULL ,
+	"product_quantity_year" "smallint" NOT NULL ,
+	"perc_of_product_quantity_year" "real" NOT NULL
 )
 GO
