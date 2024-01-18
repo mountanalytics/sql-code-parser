@@ -24,6 +24,14 @@ GO
   Drop the tables if they exist 
 */
 
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_Order_AGGR') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_Order_AGGR"
+GO
+
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_Product_AGGR') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_Product_AGGR"
+GO
+	
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_1996_EXPORT"
 GO
@@ -33,7 +41,8 @@ GO
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1998_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_1998_EXPORT"
 GO
-  
+
+
 if exists (select * from sysobjects where id = object_id('dbo.Orders_1996_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Orders_1996_EXPORT"
 GO
@@ -225,6 +234,23 @@ CREATE TABLE "Products_Export" (
 GO
 
 
+CREATE TABLE "Order_Details_Order_AGGR" (
+	"OrderID" "int" NOT NULL ,
+	"NrOfProducts" "int" NOT NULL ,
+	"avg_order_unitprice" "money" NOT NULL ,
+	"max_order_discount" "real" NOT NULL ,
+	"min_order_discount" "real" NOT NULL ,
+	"total_quantity" "smallint" NOT NULL 
+	)
+GO
+
+
+CREATE TABLE "Order_Details_Product_AGGR" (
+	"ProductID" "int" NOT NULL ,
+	"product_quantity_year" "smallint" NOT NULL 
+	)
+GO
+	
 CREATE TABLE "Order_Details_1996_Export" (
 	"OrderID" "int" NOT NULL ,
 	"ProductID" "int" NOT NULL ,
