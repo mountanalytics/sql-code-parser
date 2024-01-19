@@ -32,9 +32,14 @@ if exists (select * from sysobjects where id = object_id('dbo.Order_Details_Prod
 	drop table "dbo"."Order_Details_Product_AGGR"
 GO
 	
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_EXPORT') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_EXPORT"
+GO
+	
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_1996_EXPORT"
 GO
+	
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1997_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_1997_EXPORT"
 GO
@@ -42,7 +47,9 @@ if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1998
 	drop table "dbo"."Order_Details_1998_EXPORT"
 GO
 
-
+if exists (select * from sysobjects where id = object_id('dbo.Orders_EXPORT') and sysstat & 0xf = 3)
+	drop table "dbo"."Orders_EXPORT"
+GO
 if exists (select * from sysobjects where id = object_id('dbo.Orders_1996_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Orders_1996_EXPORT"
 GO
