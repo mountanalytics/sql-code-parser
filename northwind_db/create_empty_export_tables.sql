@@ -35,7 +35,7 @@ GO
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_EXPORT"
 GO
-	
+
 if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_EXPORT') and sysstat & 0xf = 3)
 	drop table "dbo"."Order_Details_1996_EXPORT"
 GO
@@ -157,7 +157,26 @@ CREATE TABLE "Suppliers_Export" (
 )
 GO
 
-
+CREATE TABLE "Orders_Export" (
+	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
+	"CustomerID" nchar (5) NULL ,
+	"EmployeeID" "int" NULL ,
+	"OrderDate" "datetime" NULL ,
+	"OrderDate_Month" "datetime" NULL ,
+	"RequiredDate" "datetime" NULL ,
+	"Days_order_shipment" "int" NULL ,
+	"ShippedDate" "datetime" NULL ,
+	"ShipVia" "int" NULL ,
+	"Freight" "money" NULL ,
+	"ShipName" nvarchar (40) NULL ,
+	"ShipAddress" nvarchar (60) NULL ,
+	"ShipCity" nvarchar (15) NULL ,
+	"ShipRegion" nvarchar (15) NULL ,
+	"ShipPostalCode" nvarchar (10) NULL ,
+	"ShipCountry" nvarchar (15) NULL,
+	"ShipAddressConcat" nvarchar (120) NULL 
+)
+GO
 
 CREATE TABLE "Orders_1996_Export" (
 	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
@@ -256,6 +275,22 @@ CREATE TABLE "Order_Details_Product_AGGR" (
 	"ProductID" "int" NOT NULL ,
 	"product_quantity_year" "smallint" NOT NULL 
 	)
+GO
+
+CREATE TABLE "Order_Details_Export" (
+	"OrderID" "int" NOT NULL ,
+	"ProductID" "int" NOT NULL ,
+	"UnitPrice" "money" NOT NULL ,
+	"Quantity" "smallint" NOT NULL ,
+	"Discount" "real" NOT NULL ,
+	"NrOfProducts" "int" NOT NULL ,
+	"avg_order_unitprice" "money" NOT NULL ,
+	"max_order_discount" "real" NOT NULL ,
+	"min_order_discount" "real" NOT NULL ,
+	"total_quantity" "smallint" NOT NULL ,
+	"product_quantity_year" "smallint" NOT NULL ,
+	"perc_of_product_quantity_year" "real" NOT NULL
+)
 GO
 	
 CREATE TABLE "Order_Details_1996_Export" (
