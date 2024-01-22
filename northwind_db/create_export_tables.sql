@@ -1,39 +1,39 @@
-/* Script to create all the export tables that are migrated to Azure DF using CSV files */
+/* Script to create all the Extract tables that are migrated to Azure DF using CSV files */
 
 /* CATEGORIES */
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Categories_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Categories_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Categories_Export(CategoryID, CategoryName, Description)
+INSERT INTO MA_NorthWindDB.dbo.Categories_Extract(CategoryID, CategoryName, Description)
 SELECT CategoryID, CategoryName, Description
 FROM MA_NorthWindDB.dbo.Categories;
 
  
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Categories_Export OFF 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Categories_Extract OFF 
 
 
 /* CUSTOMERS */
 
-INSERT INTO MA_NorthWindDB.dbo.Customers_Export (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+INSERT INTO MA_NorthWindDB.dbo.Customers_Extract (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
 SELECT CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax
 FROM MA_NorthWindDB.dbo.Customers;
 
   
 /* EMPLOYEETERRITORIES */
 
-INSERT INTO MA_NorthWindDB.dbo.EmployeeTerritories_Export(EmployeeID, TerritoryID)
+INSERT INTO MA_NorthWindDB.dbo.EmployeeTerritories_Extract(EmployeeID, TerritoryID)
 SELECT EmployeeID, TerritoryID
 FROM MA_NorthWindDB.dbo.EmployeeTerritories;
 
 
 /* EMPLOYEES */
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Employees_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Employees_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Employees_Export (EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, ReportsTo)
+INSERT INTO MA_NorthWindDB.dbo.Employees_Extract (EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, ReportsTo)
 SELECT EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, ReportsTo
 FROM MA_NorthWindDB.dbo.Employees;
 
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Employees_Export OFF 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Employees_Extract OFF 
 
 
 /* ORDER_DETAILS 3x*/
@@ -62,7 +62,7 @@ select
 			group by 
 				productid;
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_EXPORT(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -83,7 +83,7 @@ where
 	YEAR(b.OrderDate) = 1996;
 
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_EXPORT(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -103,7 +103,7 @@ FROM
 where 
 	YEAR(b.OrderDate) = 1997;
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_EXPORT(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -129,9 +129,9 @@ where
 
 
 /* ORDERS 3x */
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Export(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -155,13 +155,13 @@ FROM
 where 
 	YEAR(OrderDate) = 1996;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export OFF
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
 
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Export(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -185,12 +185,12 @@ FROM
 where 
 	YEAR(OrderDate) = 1997;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export OFF
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Export(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -214,14 +214,14 @@ FROM
 where 
 	YEAR(OrderDate) = 1998;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Export OFF  
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF  
 
 
   
 /* PRODUCTS */
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Products_Export ON  
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Products_Extract ON  
 
-INSERT INTO MA_NorthWindDB.dbo.Products_Export (ProductID, ProductName, beverage,	SupplierID, CategoryID, QuantityPerUnit, UnitPrice, StockShortage, UnitsInStock, UnitsOnOrder, 	ReorderLevel,	Discontinued)
+INSERT INTO MA_NorthWindDB.dbo.Products_Extract (ProductID, ProductName, beverage,	SupplierID, CategoryID, QuantityPerUnit, UnitPrice, StockShortage, UnitsInStock, UnitsOnOrder, 	ReorderLevel,	Discontinued)
 SELECT 
 	ProductID, 
 	ProductName,
@@ -244,39 +244,39 @@ SELECT
 FROM 	
 	MA_NorthWindDB.dbo.Products;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Products_Export OFF  
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Products_Extract OFF  
 
 /* REGION */
 
-INSERT INTO MA_NorthWindDB.dbo.Region_Export(RegionID, RegionDescription)
+INSERT INTO MA_NorthWindDB.dbo.Region_Extract(RegionID, RegionDescription)
 SELECT RegionID, RegionDescription
 FROM MA_NorthWindDB.dbo.Region;
 
 
 /* SUPPLIERS */
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Suppliers_Export ON  
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Suppliers_Extract ON  
   
-INSERT INTO MA_NorthWindDB.dbo.Suppliers_Export ( SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+INSERT INTO MA_NorthWindDB.dbo.Suppliers_Extract ( SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
 SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax
 FROM MA_NorthWindDB.dbo.Suppliers;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Suppliers_Export OFF 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Suppliers_Extract OFF 
   
 /* SHIPPERS */
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Shippers_Export ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Shippers_Extract ON
 GO
   
-INSERT INTO MA_NorthWindDB.dbo.Shippers_Export (ShipperID, CompanyName, Phone)
+INSERT INTO MA_NorthWindDB.dbo.Shippers_Extract (ShipperID, CompanyName, Phone)
 SELECT ShipperID, CompanyName, Phone
 FROM MA_NorthWindDB.dbo.Shippers
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Shippers_Export OFF 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Shippers_Extract OFF 
 GO
 
 
 /* TERRITORIES*/
-INSERT INTO MA_NorthWindDB.dbo.Territories_Export (TerritoryID, TerritoryDescription, RegionID)
+INSERT INTO MA_NorthWindDB.dbo.Territories_Extract (TerritoryID, TerritoryDescription, RegionID)
 SELECT TerritoryID, trim(TerritoryDescription) as TerritoryDescription, RegionID
 FROM MA_NorthWindDB.dbo.Territories;
 
