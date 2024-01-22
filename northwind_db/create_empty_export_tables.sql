@@ -32,67 +32,67 @@ if exists (select * from sysobjects where id = object_id('dbo.Order_Details_Prod
 	drop table "dbo"."Order_Details_Product_AGGR"
 GO
 	
-if exists (select * from sysobjects where id = object_id('dbo.Order_Details_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order_Details_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_Extract"
 GO
 
-if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order_Details_1996_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1996_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1996_Extract"
 GO
 	
-if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1997_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order_Details_1997_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1997_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1997_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1998_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Order_Details_1998_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Order_Details_1998_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Order_Details_1998_Extract"
 GO
 
-if exists (select * from sysobjects where id = object_id('dbo.Orders_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Orders_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Orders_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Orders_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Orders_1996_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Orders_1996_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Orders_1996_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Orders_1996_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Orders_1997_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Orders_1997_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Orders_1997_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Orders_1997_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Orders_1998_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Orders_1998_EXPORT"
-GO
-  
-if exists (select * from sysobjects where id = object_id('dbo.Products_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Products_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Orders_1998_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Orders_1998_Extract"
 GO
   
-if exists (select * from sysobjects where id = object_id('dbo.Categories_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Categories_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Products_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Products_Extract"
 GO
   
-if exists (select * from sysobjects where id = object_id('dbo.Customers_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Customers_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Categories_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Categories_Extract"
 GO
   
-if exists (select * from sysobjects where id = object_id('dbo.Shippers_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Shippers_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Customers_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Customers_Extract"
 GO
   
-if exists (select * from sysobjects where id = object_id('dbo.Suppliers_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Suppliers_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Shippers_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Shippers_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.EmployeeTerritories_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."EmployeeTerritories_EXPORT"
+  
+if exists (select * from sysobjects where id = object_id('dbo.Suppliers_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Suppliers_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Territories_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Territories_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.EmployeeTerritories_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."EmployeeTerritories_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Region_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Region_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Territories_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Territories_Extract"
 GO
-if exists (select * from sysobjects where id = object_id('dbo.Employees_EXPORT') and sysstat & 0xf = 3)
-	drop table "dbo"."Employees_EXPORT"
+if exists (select * from sysobjects where id = object_id('dbo.Region_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Region_Extract"
+GO
+if exists (select * from sysobjects where id = object_id('dbo.Employees_Extract') and sysstat & 0xf = 3)
+	drop table "dbo"."Employees_Extract"
 GO  
 
-CREATE TABLE "Employees_Export" (
+CREATE TABLE "Employees_Extract" (
 	"EmployeeID" "int" IDENTITY (1, 1) NOT NULL ,
 	"LastName" nvarchar (20) NOT NULL ,
 	"FirstName" nvarchar (10) NOT NULL ,
@@ -112,14 +112,14 @@ CREATE TABLE "Employees_Export" (
 GO
 
 
-CREATE TABLE "Categories_Export" (
+CREATE TABLE "Categories_Extract" (
 	"CategoryID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CategoryName" nvarchar (15) NOT NULL ,
 	"Description" "ntext" NULL 
 )
 
 
-CREATE TABLE "Customers_Export" (
+CREATE TABLE "Customers_Extract" (
 	"CustomerID" nchar (5) NOT NULL ,
 	"CompanyName" nvarchar (40) NOT NULL ,
 	"ContactName" nvarchar (30) NULL ,
@@ -135,14 +135,14 @@ CREATE TABLE "Customers_Export" (
 GO
 
 
-CREATE TABLE "Shippers_Export" (
+CREATE TABLE "Shippers_Extract" (
 	"ShipperID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CompanyName" nvarchar (40) NOT NULL ,
 	"Phone" nvarchar (24) NULL 
 )
 GO
 
-CREATE TABLE "Suppliers_Export" (
+CREATE TABLE "Suppliers_Extract" (
 	"SupplierID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CompanyName" nvarchar (40) NOT NULL ,
 	"ContactName" nvarchar (30) NULL ,
@@ -157,7 +157,7 @@ CREATE TABLE "Suppliers_Export" (
 )
 GO
 
-CREATE TABLE "Orders_Export" (
+CREATE TABLE "Orders_Extract" (
 	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CustomerID" nchar (5) NULL ,
 	"EmployeeID" "int" NULL ,
@@ -178,7 +178,7 @@ CREATE TABLE "Orders_Export" (
 )
 GO
 
-CREATE TABLE "Orders_1996_Export" (
+CREATE TABLE "Orders_1996_Extract" (
 	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CustomerID" nchar (5) NULL ,
 	"EmployeeID" "int" NULL ,
@@ -199,7 +199,7 @@ CREATE TABLE "Orders_1996_Export" (
 )
 GO
 
-	CREATE TABLE "Orders_1997_Export" (
+	CREATE TABLE "Orders_1997_Extract" (
 	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CustomerID" nchar (5) NULL ,
 	"EmployeeID" "int" NULL ,
@@ -222,7 +222,7 @@ GO
 
 	
 GO
-	CREATE TABLE "Orders_1998_Export" (
+	CREATE TABLE "Orders_1998_Extract" (
 	"OrderID" "int" IDENTITY (1, 1) NOT NULL ,
 	"CustomerID" nchar (5) NULL ,
 	"EmployeeID" "int" NULL ,
@@ -243,7 +243,7 @@ GO
 )
 	
 GO
-CREATE TABLE "Products_Export" (
+CREATE TABLE "Products_Extract" (
 	"ProductID" "int" IDENTITY (1, 1) NOT NULL ,
 	"ProductName" nvarchar (40) NOT NULL ,
 	"beverage" nvarchar (40) NULL ,
@@ -277,7 +277,7 @@ CREATE TABLE "Order_Details_Product_AGGR" (
 	)
 GO
 
-CREATE TABLE "Order_Details_Export" (
+CREATE TABLE "Order_Details_Extract" (
 	"OrderID" "int" NOT NULL ,
 	"ProductID" "int" NOT NULL ,
 	"UnitPrice" "money" NOT NULL ,
@@ -293,7 +293,7 @@ CREATE TABLE "Order_Details_Export" (
 )
 GO
 	
-CREATE TABLE "Order_Details_1996_Export" (
+CREATE TABLE "Order_Details_1996_Extract" (
 	"OrderID" "int" NOT NULL ,
 	"ProductID" "int" NOT NULL ,
 	"UnitPrice" "money" NOT NULL ,
@@ -310,7 +310,7 @@ CREATE TABLE "Order_Details_1996_Export" (
 GO
 
 
-CREATE TABLE "Order_Details_1997_Export" (
+CREATE TABLE "Order_Details_1997_Extract" (
 	"OrderID" "int" NOT NULL ,
 	"ProductID" "int" NOT NULL ,
 	"UnitPrice" "money" NOT NULL ,
@@ -327,7 +327,7 @@ CREATE TABLE "Order_Details_1997_Export" (
 GO
 
 
-CREATE TABLE "Order_Details_1998_Export" (
+CREATE TABLE "Order_Details_1998_Extract" (
 	"OrderID" "int" NOT NULL ,
 	"ProductID" "int" NOT NULL ,
 	"UnitPrice" "money" NOT NULL ,
@@ -345,20 +345,20 @@ GO
 
 
 
-CREATE TABLE "Region_Export" ( 
+CREATE TABLE "Region_Extract" ( 
 	"RegionID" "int" NOT NULL ,
 	"RegionDescription" "nchar" (50) NOT NULL
 ) 
 GO
 
-CREATE TABLE "Territories_Export" (
+CREATE TABLE "Territories_Extract" (
 	"TerritoryID" "nvarchar" (20) NOT NULL ,
 	"TerritoryDescription" "nchar" (50) NOT NULL ,
         "RegionID" [int] NOT NULL
 ) 
 GO
 
-CREATE TABLE "EmployeeTerritories_Export" (
+CREATE TABLE "EmployeeTerritories_Extract" (
 	"EmployeeID" "int" NOT NULL,
 	"TerritoryID" "nvarchar" (20) NOT NULL
 ) 
