@@ -1,0 +1,266 @@
+﻿ROW_ID;SOURCE_ID;SOURCE_LABEL;SOURCE_DB;SOURCE_SCHEMA;SOURCE_TABLE;SOURCE_FIELD;TARGET_ID;TARGET_LABEL;TARGET_DB;TARGET_SCHEMA;TARGET_TABLE;TARGET_FIELD;TRANSFORMATION;LINK_VALUE;RAT_SCORE;COLOR
+1;1;Categories@CategoryID;MA_NorthWindDB;dbo;Categories;CategoryID;2;Categories_Extract@CategoryID;MA_NorthWindDB;dbo;Categories_Extract;CategoryID;;1;0;aliceblue
+2;1;Categories@CategoryName;MA_NorthWindDB;dbo;Categories;CategoryName;2;Categories_Extract@CategoryName;MA_NorthWindDB;dbo;Categories_Extract;CategoryName;;1;0;aliceblue
+3;1;Categories@Description;MA_NorthWindDB;dbo;Categories;Description;2;Categories_Extract@Description;MA_NorthWindDB;dbo;Categories_Extract;Description;;1;0;aliceblue
+4;3;Customers@CustomerID;MA_NorthWindDB;dbo;Customers;CustomerID;4;Customers_Extract@CustomerID;MA_NorthWindDB;dbo;Customers_Extract;CustomerID;;1;0;aliceblue
+5;3;Customers@CompanyName;MA_NorthWindDB;dbo;Customers;CompanyName;4;Customers_Extract@CompanyName;MA_NorthWindDB;dbo;Customers_Extract;CompanyName;;1;0;aliceblue
+6;3;Customers@ContactName;MA_NorthWindDB;dbo;Customers;ContactName;4;Customers_Extract@ContactName;MA_NorthWindDB;dbo;Customers_Extract;ContactName;;1;0;aliceblue
+7;3;Customers@ContactTitle;MA_NorthWindDB;dbo;Customers;ContactTitle;4;Customers_Extract@ContactTitle;MA_NorthWindDB;dbo;Customers_Extract;ContactTitle;;1;0;aliceblue
+8;3;Customers@Address;MA_NorthWindDB;dbo;Customers;Address;4;Customers_Extract@Address;MA_NorthWindDB;dbo;Customers_Extract;Address;;1;0;aliceblue
+9;3;Customers@City;MA_NorthWindDB;dbo;Customers;City;4;Customers_Extract@City;MA_NorthWindDB;dbo;Customers_Extract;City;;1;0;aliceblue
+10;3;Customers@Region;MA_NorthWindDB;dbo;Customers;Region;4;Customers_Extract@Region;MA_NorthWindDB;dbo;Customers_Extract;Region;;1;0;aliceblue
+11;3;Customers@PostalCode;MA_NorthWindDB;dbo;Customers;PostalCode;4;Customers_Extract@PostalCode;MA_NorthWindDB;dbo;Customers_Extract;PostalCode;;1;0;aliceblue
+12;3;Customers@Country;MA_NorthWindDB;dbo;Customers;Country;4;Customers_Extract@Country;MA_NorthWindDB;dbo;Customers_Extract;Country;;1;0;aliceblue
+13;3;Customers@Phone;MA_NorthWindDB;dbo;Customers;Phone;4;Customers_Extract@Phone;MA_NorthWindDB;dbo;Customers_Extract;Phone;;1;0;aliceblue
+14;3;Customers@Fax;MA_NorthWindDB;dbo;Customers;Fax;4;Customers_Extract@Fax;MA_NorthWindDB;dbo;Customers_Extract;Fax;;1;0;aliceblue
+15;7;EmployeeTerritories@EmployeeID;MA_NorthWindDB;dbo;EmployeeTerritories;EmployeeID;8;EmployeeTerritories_Extract@EmployeeID;MA_NorthWindDB;dbo;EmployeeTerritories_Extract;EmployeeID;;1;0;aliceblue
+16;7;EmployeeTerritories@TerritoryID;MA_NorthWindDB;dbo;EmployeeTerritories;TerritoryID;8;EmployeeTerritories_Extract@TerritoryID;MA_NorthWindDB;dbo;EmployeeTerritories_Extract;TerritoryID;;1;0;aliceblue
+17;5;Employees@EmployeeID;MA_NorthWindDB;dbo;Employees;EmployeeID;6;Employees_Extract@EmployeeID;MA_NorthWindDB;dbo;Employees_Extract;EmployeeID;;1;0;aliceblue
+18;5;Employees@LastName;MA_NorthWindDB;dbo;Employees;LastName;6;Employees_Extract@LastName;MA_NorthWindDB;dbo;Employees_Extract;LastName;;1;0;aliceblue
+19;5;Employees@FirstName;MA_NorthWindDB;dbo;Employees;FirstName;6;Employees_Extract@FirstName;MA_NorthWindDB;dbo;Employees_Extract;FirstName;;1;0;aliceblue
+20;5;Employees@Title;MA_NorthWindDB;dbo;Employees;Title;6;Employees_Extract@Title;MA_NorthWindDB;dbo;Employees_Extract;Title;;1;0;aliceblue
+21;5;Employees@TitleOfCourtesy;MA_NorthWindDB;dbo;Employees;TitleOfCourtesy;6;Employees_Extract@TitleOfCourtesy;MA_NorthWindDB;dbo;Employees_Extract;TitleOfCourtesy;;1;0;aliceblue
+22;5;Employees@BirthDate;MA_NorthWindDB;dbo;Employees;BirthDate;6;Employees_Extract@BirthDate;MA_NorthWindDB;dbo;Employees_Extract;BirthDate;;1;0;aliceblue
+23;5;Employees@HireDate;MA_NorthWindDB;dbo;Employees;HireDate;6;Employees_Extract@HireDate;MA_NorthWindDB;dbo;Employees_Extract;HireDate;;1;0;aliceblue
+24;5;Employees@Address;MA_NorthWindDB;dbo;Employees;Address;6;Employees_Extract@Address;MA_NorthWindDB;dbo;Employees_Extract;Address;;1;0;aliceblue
+25;5;Employees@City;MA_NorthWindDB;dbo;Employees;City;6;Employees_Extract@City;MA_NorthWindDB;dbo;Employees_Extract;City;;1;0;aliceblue
+26;5;Employees@Region;MA_NorthWindDB;dbo;Employees;Region;6;Employees_Extract@Region;MA_NorthWindDB;dbo;Employees_Extract;Region;;1;0;aliceblue
+27;5;Employees@PostalCode;MA_NorthWindDB;dbo;Employees;PostalCode;6;Employees_Extract@PostalCode;MA_NorthWindDB;dbo;Employees_Extract;PostalCode;;1;0;aliceblue
+28;5;Employees@Country;MA_NorthWindDB;dbo;Employees;Country;6;Employees_Extract@Country;MA_NorthWindDB;dbo;Employees_Extract;Country;;1;0;aliceblue
+29;5;Employees@HomePhone;MA_NorthWindDB;dbo;Employees;HomePhone;6;Employees_Extract@HomePhone;MA_NorthWindDB;dbo;Employees_Extract;HomePhone;;1;0;aliceblue
+30;5;Employees@Extension;MA_NorthWindDB;dbo;Employees;Extension;6;Employees_Extract@Extension;MA_NorthWindDB;dbo;Employees_Extract;Extension;;1;0;aliceblue
+31;5;Employees@ReportsTo;MA_NorthWindDB;dbo;Employees;ReportsTo;6;Employees_Extract@ReportsTo;MA_NorthWindDB;dbo;Employees_Extract;ReportsTo;;1;0;aliceblue
+32;0;[Order Details]@orderid;MA_NorthWindDB;dbo;[Order Details];orderid;9;Order_Details_Order_AGGR@orderid;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;orderid;;1;0;aliceblue
+33;0;[Order Details]@*;MA_NorthWindDB;dbo;[Order Details];*;9;Order_Details_Order_AGGR@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;NrOfProducts;count(*);1;0;orangered
+34;0;[Order Details]@unitprice;MA_NorthWindDB;dbo;[Order Details];unitprice;9;Order_Details_Order_AGGR@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;avg_order_unitprice;avg(unitprice);1;0;orangered
+35;0;[Order Details]@max_order_discount;MA_NorthWindDB;dbo;[Order Details];max_order_discount;9;Order_Details_Order_AGGR@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;max_order_discount;max(Discount);1;0;orangered
+36;0;[Order Details]@min_order_discount;MA_NorthWindDB;dbo;[Order Details];min_order_discount;9;Order_Details_Order_AGGR@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;min_order_discount;min(Discount);1;0;orangered
+37;0;[Order Details]@total_quantity;MA_NorthWindDB;dbo;[Order Details];total_quantity;9;Order_Details_Order_AGGR@total_quantity;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;total_quantity;sum(quantity);1;0;orangered
+38;0;[Order Details]@productid;MA_NorthWindDB;dbo;[Order Details];productid;10;Order_Details_Product_AGGR@productid;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;productid;;1;0;aliceblue
+39;0;[Order Details]@quantity;MA_NorthWindDB;dbo;[Order Details];quantity;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;sum(quantity);1;0;orangered
+40;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;19;Orders_Extract@OrderID;MA_NorthWindDB;dbo;Orders_Extract;OrderID;;1;0;aliceblue
+41;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;19;Orders_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_Extract;CustomerID;;1;0;aliceblue
+42;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;19;Orders_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_Extract;EmployeeID;;1;0;aliceblue
+43;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_Extract;OrderDate;;1;0;aliceblue
+44;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+45;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;19;Orders_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_Extract;RequiredDate;;1;0;aliceblue
+46;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+47;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+48;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_Extract;ShippedDate;;1;0;aliceblue
+49;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;19;Orders_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_Extract;ShipVia;;1;0;aliceblue
+50;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;19;Orders_Extract@Freight;MA_NorthWindDB;dbo;Orders_Extract;Freight;;1;0;aliceblue
+51;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;19;Orders_Extract@ShipName;MA_NorthWindDB;dbo;Orders_Extract;ShipName;;1;0;aliceblue
+52;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_Extract;ShipAddress;;1;0;aliceblue
+53;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_Extract;ShipCity;;1;0;aliceblue
+54;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_Extract;ShipRegion;;1;0;aliceblue
+55;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_Extract;ShipPostalCode;;1;0;aliceblue
+56;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_Extract;ShipCountry;;1;0;aliceblue
+57;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+58;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+59;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+60;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+61;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+62;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;16;Orders_1996_Extract@OrderID;MA_NorthWindDB;dbo;Orders_1996_Extract;OrderID;;1;0;aliceblue
+63;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;16;Orders_1996_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_1996_Extract;CustomerID;;1;0;aliceblue
+64;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;16;Orders_1996_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_1996_Extract;EmployeeID;;1;0;aliceblue
+65;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;16;Orders_1996_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_1996_Extract;OrderDate;;1;0;aliceblue
+66;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;16;Orders_1996_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_1996_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+67;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;16;Orders_1996_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_1996_Extract;RequiredDate;;1;0;aliceblue
+68;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;16;Orders_1996_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1996_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+69;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;16;Orders_1996_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1996_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+70;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;16;Orders_1996_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_1996_Extract;ShippedDate;;1;0;aliceblue
+71;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;16;Orders_1996_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipVia;;1;0;aliceblue
+72;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;16;Orders_1996_Extract@Freight;MA_NorthWindDB;dbo;Orders_1996_Extract;Freight;;1;0;aliceblue
+73;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;16;Orders_1996_Extract@ShipName;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipName;;1;0;aliceblue
+74;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;16;Orders_1996_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddress;;1;0;aliceblue
+75;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;16;Orders_1996_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipCity;;1;0;aliceblue
+76;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;16;Orders_1996_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipRegion;;1;0;aliceblue
+77;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;16;Orders_1996_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipPostalCode;;1;0;aliceblue
+78;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;16;Orders_1996_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipCountry;;1;0;aliceblue
+79;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;16;Orders_1996_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+80;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;16;Orders_1996_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+81;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;16;Orders_1996_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+82;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;16;Orders_1996_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+83;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;16;Orders_1996_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1996_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+84;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;19;Orders_Extract@OrderID;MA_NorthWindDB;dbo;Orders_Extract;OrderID;;1;0;aliceblue
+85;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;19;Orders_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_Extract;CustomerID;;1;0;aliceblue
+86;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;19;Orders_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_Extract;EmployeeID;;1;0;aliceblue
+87;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_Extract;OrderDate;;1;0;aliceblue
+88;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+89;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;19;Orders_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_Extract;RequiredDate;;1;0;aliceblue
+90;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+91;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+92;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_Extract;ShippedDate;;1;0;aliceblue
+93;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;19;Orders_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_Extract;ShipVia;;1;0;aliceblue
+94;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;19;Orders_Extract@Freight;MA_NorthWindDB;dbo;Orders_Extract;Freight;;1;0;aliceblue
+95;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;19;Orders_Extract@ShipName;MA_NorthWindDB;dbo;Orders_Extract;ShipName;;1;0;aliceblue
+96;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_Extract;ShipAddress;;1;0;aliceblue
+97;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_Extract;ShipCity;;1;0;aliceblue
+98;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_Extract;ShipRegion;;1;0;aliceblue
+99;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_Extract;ShipPostalCode;;1;0;aliceblue
+100;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_Extract;ShipCountry;;1;0;aliceblue
+101;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+102;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+103;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+104;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+105;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+106;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;17;Orders_1997_Extract@OrderID;MA_NorthWindDB;dbo;Orders_1997_Extract;OrderID;;1;0;aliceblue
+107;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;17;Orders_1997_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_1997_Extract;CustomerID;;1;0;aliceblue
+108;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;17;Orders_1997_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_1997_Extract;EmployeeID;;1;0;aliceblue
+109;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;17;Orders_1997_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_1997_Extract;OrderDate;;1;0;aliceblue
+110;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;17;Orders_1997_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_1997_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+111;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;17;Orders_1997_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_1997_Extract;RequiredDate;;1;0;aliceblue
+112;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;17;Orders_1997_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1997_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+113;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;17;Orders_1997_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1997_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+114;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;17;Orders_1997_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_1997_Extract;ShippedDate;;1;0;aliceblue
+115;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;17;Orders_1997_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipVia;;1;0;aliceblue
+116;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;17;Orders_1997_Extract@Freight;MA_NorthWindDB;dbo;Orders_1997_Extract;Freight;;1;0;aliceblue
+117;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;17;Orders_1997_Extract@ShipName;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipName;;1;0;aliceblue
+118;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;17;Orders_1997_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddress;;1;0;aliceblue
+119;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;17;Orders_1997_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipCity;;1;0;aliceblue
+120;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;17;Orders_1997_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipRegion;;1;0;aliceblue
+121;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;17;Orders_1997_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipPostalCode;;1;0;aliceblue
+122;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;17;Orders_1997_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipCountry;;1;0;aliceblue
+123;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;17;Orders_1997_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+124;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;17;Orders_1997_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+125;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;17;Orders_1997_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+126;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;17;Orders_1997_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+127;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;17;Orders_1997_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1997_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+128;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;19;Orders_Extract@OrderID;MA_NorthWindDB;dbo;Orders_Extract;OrderID;;1;0;aliceblue
+129;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;19;Orders_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_Extract;CustomerID;;1;0;aliceblue
+130;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;19;Orders_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_Extract;EmployeeID;;1;0;aliceblue
+131;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_Extract;OrderDate;;1;0;aliceblue
+132;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+133;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;19;Orders_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_Extract;RequiredDate;;1;0;aliceblue
+134;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+135;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+136;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;19;Orders_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_Extract;ShippedDate;;1;0;aliceblue
+137;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;19;Orders_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_Extract;ShipVia;;1;0;aliceblue
+138;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;19;Orders_Extract@Freight;MA_NorthWindDB;dbo;Orders_Extract;Freight;;1;0;aliceblue
+139;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;19;Orders_Extract@ShipName;MA_NorthWindDB;dbo;Orders_Extract;ShipName;;1;0;aliceblue
+140;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_Extract;ShipAddress;;1;0;aliceblue
+141;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_Extract;ShipCity;;1;0;aliceblue
+142;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_Extract;ShipRegion;;1;0;aliceblue
+143;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_Extract;ShipPostalCode;;1;0;aliceblue
+144;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_Extract;ShipCountry;;1;0;aliceblue
+145;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+146;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+147;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+148;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+149;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;19;Orders_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+150;15;Orders@OrderID;MA_NorthWindDB;dbo;Orders;OrderID;18;Orders_1998_Extract@OrderID;MA_NorthWindDB;dbo;Orders_1998_Extract;OrderID;;1;0;aliceblue
+151;15;Orders@CustomerID;MA_NorthWindDB;dbo;Orders;CustomerID;18;Orders_1998_Extract@CustomerID;MA_NorthWindDB;dbo;Orders_1998_Extract;CustomerID;;1;0;aliceblue
+152;15;Orders@EmployeeID;MA_NorthWindDB;dbo;Orders;EmployeeID;18;Orders_1998_Extract@EmployeeID;MA_NorthWindDB;dbo;Orders_1998_Extract;EmployeeID;;1;0;aliceblue
+153;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;18;Orders_1998_Extract@OrderDate;MA_NorthWindDB;dbo;Orders_1998_Extract;OrderDate;;1;0;aliceblue
+154;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;18;Orders_1998_Extract@OrderDate_Month;MA_NorthWindDB;dbo;Orders_1998_Extract;OrderDate_Month;CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME);1;0;orangered
+155;15;Orders@RequiredDate;MA_NorthWindDB;dbo;Orders;RequiredDate;18;Orders_1998_Extract@RequiredDate;MA_NorthWindDB;dbo;Orders_1998_Extract;RequiredDate;;1;0;aliceblue
+156;15;Orders@OrderDate;MA_NorthWindDB;dbo;Orders;OrderDate;18;Orders_1998_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1998_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+157;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;18;Orders_1998_Extract@Days_order_shipment;MA_NorthWindDB;dbo;Orders_1998_Extract;Days_order_shipment;DATEDIFF(day, OrderDate, ShippedDate);1;0;orangered
+158;15;Orders@ShippedDate;MA_NorthWindDB;dbo;Orders;ShippedDate;18;Orders_1998_Extract@ShippedDate;MA_NorthWindDB;dbo;Orders_1998_Extract;ShippedDate;;1;0;aliceblue
+159;15;Orders@ShipVia;MA_NorthWindDB;dbo;Orders;ShipVia;18;Orders_1998_Extract@ShipVia;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipVia;;1;0;aliceblue
+160;15;Orders@Freight;MA_NorthWindDB;dbo;Orders;Freight;18;Orders_1998_Extract@Freight;MA_NorthWindDB;dbo;Orders_1998_Extract;Freight;;1;0;aliceblue
+161;15;Orders@ShipName;MA_NorthWindDB;dbo;Orders;ShipName;18;Orders_1998_Extract@ShipName;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipName;;1;0;aliceblue
+162;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;18;Orders_1998_Extract@ShipAddress;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddress;;1;0;aliceblue
+163;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;18;Orders_1998_Extract@ShipCity;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipCity;;1;0;aliceblue
+164;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;18;Orders_1998_Extract@ShipRegion;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipRegion;;1;0;aliceblue
+165;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;18;Orders_1998_Extract@ShipPostalCode;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipPostalCode;;1;0;aliceblue
+166;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;18;Orders_1998_Extract@ShipCountry;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipCountry;;1;0;aliceblue
+167;15;Orders@ShipAddress;MA_NorthWindDB;dbo;Orders;ShipAddress;18;Orders_1998_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+168;15;Orders@ShipCity;MA_NorthWindDB;dbo;Orders;ShipCity;18;Orders_1998_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+169;15;Orders@ShipRegion;MA_NorthWindDB;dbo;Orders;ShipRegion;18;Orders_1998_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+170;15;Orders@ShipPostalCode;MA_NorthWindDB;dbo;Orders;ShipPostalCode;18;Orders_1998_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+171;15;Orders@ShipCountry;MA_NorthWindDB;dbo;Orders;ShipCountry;18;Orders_1998_Extract@ShipAddressConcat;MA_NorthWindDB;dbo;Orders_1998_Extract;ShipAddressConcat;CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry);1;0;orangered
+172;20;Products@ProductID;MA_NorthWindDB;dbo;Products;ProductID;21;Products_Extract@ProductID;MA_NorthWindDB;dbo;Products_Extract;ProductID;;1;0;aliceblue
+173;20;Products@ProductName;MA_NorthWindDB;dbo;Products;ProductName;21;Products_Extract@ProductName;MA_NorthWindDB;dbo;Products_Extract;ProductName;;1;0;aliceblue
+174;20;Products@QuantityPerUnit;MA_NorthWindDB;dbo;Products;QuantityPerUnit;21;Products_Extract@beverage;MA_NorthWindDB;dbo;Products_Extract;beverage;"case 
+		when QuantityPerUnit like '%bottles' THEN 'BEVERAGE'
+		ELSE NULL END AS beverage";1;0;orangered
+175;20;Products@SupplierID;MA_NorthWindDB;dbo;Products;SupplierID;21;Products_Extract@SupplierID;MA_NorthWindDB;dbo;Products_Extract;SupplierID;;1;0;aliceblue
+176;20;Products@CategoryID;MA_NorthWindDB;dbo;Products;CategoryID;21;Products_Extract@CategoryID;MA_NorthWindDB;dbo;Products_Extract;CategoryID;;1;0;aliceblue
+177;20;Products@QuantityPerUnit;MA_NorthWindDB;dbo;Products;QuantityPerUnit;21;Products_Extract@QuantityPerUnit;MA_NorthWindDB;dbo;Products_Extract;QuantityPerUnit;;1;0;aliceblue
+178;20;Products@UnitPrice;MA_NorthWindDB;dbo;Products;UnitPrice;21;Products_Extract@UnitPrice;MA_NorthWindDB;dbo;Products_Extract;UnitPrice;;1;0;aliceblue
+179;20;Products@UnitsInStock;MA_NorthWindDB;dbo;Products;UnitsInStock;21;Products_Extract@StockShortage;MA_NorthWindDB;dbo;Products_Extract;StockShortage;"case 
+		when UnitsInStock < UnitsOnOrder THEN CAST((UnitsInStock-UnitsOnOrder) as VARCHAR)
+		WHEN UnitsOnOrder > 0 and UnitsInStock = UnitsOnOrder THEN 'No stock left'
+		WHEN UnitsOnOrder > 0 and (UnitsInStock - UnitsOnOrder) < ReorderLevel THEN 'time to reorder'
+		ELSE NULL END AS StockShortage";1;0;orangered
+180;20;Products@UnitsOnOrder;MA_NorthWindDB;dbo;Products;UnitsOnOrder;21;Products_Extract@StockShortage;MA_NorthWindDB;dbo;Products_Extract;StockShortage;"case 
+		when UnitsInStock < UnitsOnOrder THEN CAST((UnitsInStock-UnitsOnOrder) as VARCHAR)
+		WHEN UnitsOnOrder > 0 and UnitsInStock = UnitsOnOrder THEN 'No stock left'
+		WHEN UnitsOnOrder > 0 and (UnitsInStock - UnitsOnOrder) < ReorderLevel THEN 'time to reorder'
+		ELSE NULL END AS StockShortage";1;0;orangered
+181;20;Products@UnitsInStock;MA_NorthWindDB;dbo;Products;UnitsInStock;21;Products_Extract@UnitsInStock;MA_NorthWindDB;dbo;Products_Extract;UnitsInStock;;1;0;aliceblue
+182;20;Products@UnitsOnOrder;MA_NorthWindDB;dbo;Products;UnitsOnOrder;21;Products_Extract@UnitsOnOrder;MA_NorthWindDB;dbo;Products_Extract;UnitsOnOrder;;1;0;aliceblue
+183;20;Products@ReorderLevel;MA_NorthWindDB;dbo;Products;ReorderLevel;21;Products_Extract@ReorderLevel;MA_NorthWindDB;dbo;Products_Extract;ReorderLevel;;1;0;aliceblue
+184;20;Products@Discontinued;MA_NorthWindDB;dbo;Products;Discontinued;21;Products_Extract@Discontinued;MA_NorthWindDB;dbo;Products_Extract;Discontinued;;1;0;aliceblue
+185;22;Region@RegionID;MA_NorthWindDB;dbo;Region;RegionID;23;Region_Extract@RegionID;MA_NorthWindDB;dbo;Region_Extract;RegionID;;1;0;aliceblue
+186;22;Region@RegionDescription;MA_NorthWindDB;dbo;Region;RegionDescription;23;Region_Extract@RegionDescription;MA_NorthWindDB;dbo;Region_Extract;RegionDescription;;1;0;aliceblue
+187;26;Suppliers@SupplierID;MA_NorthWindDB;dbo;Suppliers;SupplierID;27;Suppliers_Extract@SupplierID;MA_NorthWindDB;dbo;Suppliers_Extract;SupplierID;;1;0;aliceblue
+188;26;Suppliers@CompanyName;MA_NorthWindDB;dbo;Suppliers;CompanyName;27;Suppliers_Extract@CompanyName;MA_NorthWindDB;dbo;Suppliers_Extract;CompanyName;;1;0;aliceblue
+189;26;Suppliers@ContactName;MA_NorthWindDB;dbo;Suppliers;ContactName;27;Suppliers_Extract@ContactName;MA_NorthWindDB;dbo;Suppliers_Extract;ContactName;;1;0;aliceblue
+190;26;Suppliers@ContactTitle;MA_NorthWindDB;dbo;Suppliers;ContactTitle;27;Suppliers_Extract@ContactTitle;MA_NorthWindDB;dbo;Suppliers_Extract;ContactTitle;;1;0;aliceblue
+191;26;Suppliers@Address;MA_NorthWindDB;dbo;Suppliers;Address;27;Suppliers_Extract@Address;MA_NorthWindDB;dbo;Suppliers_Extract;Address;;1;0;aliceblue
+192;26;Suppliers@City;MA_NorthWindDB;dbo;Suppliers;City;27;Suppliers_Extract@City;MA_NorthWindDB;dbo;Suppliers_Extract;City;;1;0;aliceblue
+193;26;Suppliers@Region;MA_NorthWindDB;dbo;Suppliers;Region;27;Suppliers_Extract@Region;MA_NorthWindDB;dbo;Suppliers_Extract;Region;;1;0;aliceblue
+194;20;Products@PostalCode;MA_NorthWindDB;dbo;Products;PostalCode;27;Suppliers_Extract@PostalCode;MA_NorthWindDB;dbo;Suppliers_Extract;PostalCode;;1;0;aliceblue
+195;20;Products@Country;MA_NorthWindDB;dbo;Products;Country;27;Suppliers_Extract@Country;MA_NorthWindDB;dbo;Suppliers_Extract;Country;;1;0;aliceblue
+196;20;Products@Phone;MA_NorthWindDB;dbo;Products;Phone;27;Suppliers_Extract@Phone;MA_NorthWindDB;dbo;Suppliers_Extract;Phone;;1;0;aliceblue
+197;20;Products@Fax;MA_NorthWindDB;dbo;Products;Fax;27;Suppliers_Extract@Fax;MA_NorthWindDB;dbo;Suppliers_Extract;Fax;;1;0;aliceblue
+198;24;Shippers@ShipperID;MA_NorthWindDB;dbo;Shippers;ShipperID;25;Shippers_Extract@ShipperID;MA_NorthWindDB;dbo;Shippers_Extract;ShipperID;;1;0;aliceblue
+199;24;Shippers@CompanyName;MA_NorthWindDB;dbo;Shippers;CompanyName;25;Shippers_Extract@CompanyName;MA_NorthWindDB;dbo;Shippers_Extract;CompanyName;;1;0;aliceblue
+200;24;Shippers@Phone;MA_NorthWindDB;dbo;Shippers;Phone;25;Shippers_Extract@Phone;MA_NorthWindDB;dbo;Shippers_Extract;Phone;;1;0;aliceblue
+201;28;Territories@TerritoryID;MA_NorthWindDB;dbo;Territories;TerritoryID;29;Territories_Extract@TerritoryID;MA_NorthWindDB;dbo;Territories_Extract;TerritoryID;;1;0;aliceblue
+202;28;Territories@TerritoryDescription;MA_NorthWindDB;dbo;Territories;TerritoryDescription;29;Territories_Extract@TerritoryDescription;MA_NorthWindDB;dbo;Territories_Extract;TerritoryDescription;;1;0;aliceblue
+203;28;Territories@RegionID;MA_NorthWindDB;dbo;Territories;RegionID;29;Territories_Extract@RegionID;MA_NorthWindDB;dbo;Territories_Extract;RegionID;;1;0;aliceblue
+203;0;[Order Details]@OrderID;MA_NorthWindDB;dbo;[Order Details];OrderID;11;Order_Details_Extract@OrderID;MA_NorthWindDB;dbo;Order_Details_Extract;OrderID;;1;0;aliceblue
+203;0;[Order Details]@ProductID;MA_NorthWindDB;dbo;[Order Details];ProductID;11;Order_Details_Extract@ProductID;MA_NorthWindDB;dbo;Order_Details_Extract;ProductID;;1;0;aliceblue
+203;0;[Order Details]@UnitPrice;MA_NorthWindDB;dbo;[Order Details];UnitPrice;11;Order_Details_Extract@UnitPrice;MA_NorthWindDB;dbo;Order_Details_Extract;UnitPrice;;1;0;aliceblue
+203;0;[Order Details]@Quantity;MA_NorthWindDB;dbo;[Order Details];Quantity;11;Order_Details_Extract@Quantity;MA_NorthWindDB;dbo;Order_Details_Extract;Quantity;;1;0;aliceblue
+203;0;[Order Details]@Discount;MA_NorthWindDB;dbo;[Order Details];Discount;11;Order_Details_Extract@Discount;MA_NorthWindDB;dbo;Order_Details_Extract;Discount;;1;0;aliceblue
+204;9;Order_Details_Order_AGGR@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;NrOfProducts;11;Order_Details_Extract@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Extract;NrOfProducts;;1;0;aliceblue
+205;9;Order_Details_Order_AGGR@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;avg_order_unitprice;11;Order_Details_Extract@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Extract;avg_order_unitprice;;1;0;aliceblue
+206;9;Order_Details_Order_AGGR@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;max_order_discount;11;Order_Details_Extract@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Extract;max_order_discount;;1;0;aliceblue
+207;9;Order_Details_Order_AGGR@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;min_order_discount;11;Order_Details_Extract@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Extract;min_order_discount;;1;0;aliceblue
+208;9;Order_Details_Order_AGGR@total_quantity;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;total_quantity;11;Order_Details_Extract@ total_quantity;MA_NorthWindDB;dbo;Order_Details_Extract; total_quantity;;1;0;aliceblue
+209;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;11;Order_Details_Extract@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Extract;product_quantity_year;;1;0;aliceblue
+210;0;[Order Details]@quantity;MA_NorthWindDB;dbo;[Order Details];quantity;11;Order_Details_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+211;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;11;Order_Details_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+212;0;[Order Details]@OrderID;MA_NorthWindDB;dbo;[Order Details];OrderID;12;Order_Details_1996_Extract@OrderID;MA_NorthWindDB;dbo;Order_Details_1996_Extract;OrderID;;1;0;aliceblue
+213;0;[Order Details]@ProductID;MA_NorthWindDB;dbo;[Order Details];ProductID;12;Order_Details_1996_Extract@ProductID;MA_NorthWindDB;dbo;Order_Details_1996_Extract;ProductID;;1;0;aliceblue
+214;0;[Order Details]@UnitPrice;MA_NorthWindDB;dbo;[Order Details];UnitPrice;12;Order_Details_1996_Extract@UnitPrice;MA_NorthWindDB;dbo;Order_Details_1996_Extract;UnitPrice;;1;0;aliceblue
+215;0;[Order Details]@Quantity;MA_NorthWindDB;dbo;[Order Details];Quantity;12;Order_Details_1996_Extract@Quantity;MA_NorthWindDB;dbo;Order_Details_1996_Extract;Quantity;;1;0;aliceblue
+216;0;[Order Details]@Discount;MA_NorthWindDB;dbo;[Order Details];Discount;12;Order_Details_1996_Extract@Discount;MA_NorthWindDB;dbo;Order_Details_1996_Extract;Discount;;1;0;aliceblue
+217;9;Order_Details_Order_AGGR@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;NrOfProducts;12;Order_Details_1996_Extract@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_1996_Extract;NrOfProducts;;1;0;aliceblue
+218;9;Order_Details_Order_AGGR@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;avg_order_unitprice;12;Order_Details_1996_Extract@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_1996_Extract;avg_order_unitprice;;1;0;aliceblue
+219;9;Order_Details_Order_AGGR@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;max_order_discount;12;Order_Details_1996_Extract@max_order_discount;MA_NorthWindDB;dbo;Order_Details_1996_Extract;max_order_discount;;1;0;aliceblue
+220;9;Order_Details_Order_AGGR@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;min_order_discount;12;Order_Details_1996_Extract@min_order_discount;MA_NorthWindDB;dbo;Order_Details_1996_Extract;min_order_discount;;1;0;aliceblue
+221;9;Order_Details_Order_AGGR@total_quantity;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;total_quantity;12;Order_Details_1996_Extract@ total_quantity;MA_NorthWindDB;dbo;Order_Details_1996_Extract; total_quantity;;1;0;aliceblue
+222;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;12;Order_Details_1996_Extract@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1996_Extract;product_quantity_year;;1;0;aliceblue
+223;0;[Order Details]@quantity;MA_NorthWindDB;dbo;[Order Details];quantity;12;Order_Details_1996_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1996_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+224;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;12;Order_Details_1996_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1996_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+225;0;[Order Details]@OrderID;MA_NorthWindDB;dbo;[Order Details];OrderID;13;Order_Details_1997_Extract@OrderID;MA_NorthWindDB;dbo;Order_Details_1997_Extract;OrderID;;1;0;aliceblue
+226;0;[Order Details]@ProductID;MA_NorthWindDB;dbo;[Order Details];ProductID;13;Order_Details_1997_Extract@ProductID;MA_NorthWindDB;dbo;Order_Details_1997_Extract;ProductID;;1;0;aliceblue
+227;0;[Order Details]@UnitPrice;MA_NorthWindDB;dbo;[Order Details];UnitPrice;13;Order_Details_1997_Extract@UnitPrice;MA_NorthWindDB;dbo;Order_Details_1997_Extract;UnitPrice;;1;0;aliceblue
+228;0;[Order Details]@Quantity;MA_NorthWindDB;dbo;[Order Details];Quantity;13;Order_Details_1997_Extract@Quantity;MA_NorthWindDB;dbo;Order_Details_1997_Extract;Quantity;;1;0;aliceblue
+229;0;[Order Details]@Discount;MA_NorthWindDB;dbo;[Order Details];Discount;13;Order_Details_1997_Extract@Discount;MA_NorthWindDB;dbo;Order_Details_1997_Extract;Discount;;1;0;aliceblue
+230;9;Order_Details_Order_AGGR@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;NrOfProducts;13;Order_Details_1997_Extract@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_1997_Extract;NrOfProducts;;1;0;aliceblue
+231;9;Order_Details_Order_AGGR@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;avg_order_unitprice;13;Order_Details_1997_Extract@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_1997_Extract;avg_order_unitprice;;1;0;aliceblue
+232;9;Order_Details_Order_AGGR@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;max_order_discount;13;Order_Details_1997_Extract@max_order_discount;MA_NorthWindDB;dbo;Order_Details_1997_Extract;max_order_discount;;1;0;aliceblue
+233;9;Order_Details_Order_AGGR@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;min_order_discount;13;Order_Details_1997_Extract@min_order_discount;MA_NorthWindDB;dbo;Order_Details_1997_Extract;min_order_discount;;1;0;aliceblue
+234;9;Order_Details_Order_AGGR@total_quantity;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;total_quantity;13;Order_Details_1997_Extract@ total_quantity;MA_NorthWindDB;dbo;Order_Details_1997_Extract; total_quantity;;1;0;aliceblue
+235;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;13;Order_Details_1997_Extract@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1997_Extract;product_quantity_year;;1;0;aliceblue
+236;0;[Order Details]@quantity;MA_NorthWindDB;dbo;[Order Details];quantity;13;Order_Details_1997_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1997_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+237;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;13;Order_Details_1997_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1997_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+238;0;[Order Details]@OrderID;MA_NorthWindDB;dbo;[Order Details];OrderID;14;Order_Details_1998_Extract@OrderID;MA_NorthWindDB;dbo;Order_Details_1998_Extract;OrderID;;1;0;aliceblue
+239;0;[Order Details]@ProductID;MA_NorthWindDB;dbo;[Order Details];ProductID;14;Order_Details_1998_Extract@ProductID;MA_NorthWindDB;dbo;Order_Details_1998_Extract;ProductID;;1;0;aliceblue
+240;0;[Order Details]@UnitPrice;MA_NorthWindDB;dbo;[Order Details];UnitPrice;14;Order_Details_1998_Extract@UnitPrice;MA_NorthWindDB;dbo;Order_Details_1998_Extract;UnitPrice;;1;0;aliceblue
+241;0;[Order Details]@Quantity;MA_NorthWindDB;dbo;[Order Details];Quantity;14;Order_Details_1998_Extract@Quantity;MA_NorthWindDB;dbo;Order_Details_1998_Extract;Quantity;;1;0;aliceblue
+242;0;[Order Details]@Discount;MA_NorthWindDB;dbo;[Order Details];Discount;14;Order_Details_1998_Extract@Discount;MA_NorthWindDB;dbo;Order_Details_1998_Extract;Discount;;1;0;aliceblue
+243;9;Order_Details_Order_AGGR@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;NrOfProducts;14;Order_Details_1998_Extract@NrOfProducts;MA_NorthWindDB;dbo;Order_Details_1998_Extract;NrOfProducts;;1;0;aliceblue
+244;9;Order_Details_Order_AGGR@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;avg_order_unitprice;14;Order_Details_1998_Extract@avg_order_unitprice;MA_NorthWindDB;dbo;Order_Details_1998_Extract;avg_order_unitprice;;1;0;aliceblue
+245;9;Order_Details_Order_AGGR@max_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;max_order_discount;14;Order_Details_1998_Extract@max_order_discount;MA_NorthWindDB;dbo;Order_Details_1998_Extract;max_order_discount;;1;0;aliceblue
+246;9;Order_Details_Order_AGGR@min_order_discount;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;min_order_discount;14;Order_Details_1998_Extract@min_order_discount;MA_NorthWindDB;dbo;Order_Details_1998_Extract;min_order_discount;;1;0;aliceblue
+247;9;Order_Details_Order_AGGR@total_quantity;MA_NorthWindDB;dbo;Order_Details_Order_AGGR;total_quantity;14;Order_Details_1998_Extract@ total_quantity;MA_NorthWindDB;dbo;Order_Details_1998_Extract; total_quantity;;1;0;aliceblue
+248;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;14;Order_Details_1998_Extract@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1998_Extract;product_quantity_year;;1;0;aliceblue
+249;0;[Order Details]@quantity;MA_NorthWindDB;dbo;[Order Details];quantity;14;Order_Details_1998_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1998_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
+250;10;Order_Details_Product_AGGR@product_quantity_year;MA_NorthWindDB;dbo;Order_Details_Product_AGGR;product_quantity_year;14;Order_Details_1998_Extract@perc_of_product_quantity_year;MA_NorthWindDB;dbo;Order_Details_1998_Extract;perc_of_product_quantity_year;round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1);1;0;orangered
