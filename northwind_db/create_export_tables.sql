@@ -82,8 +82,49 @@ FROM
 where 
 	YEAR(b.OrderDate) = 1996;
 
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1996(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+SELECT 
+	a.*, 
+	c.NrOfProducts, 
+	c.avg_order_unitprice,
+	c.max_order_discount, 
+	c.min_order_discount, 
+	c.total_quantity,
+	d.product_quantity_year, 
+	round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1) as perc_of_product_quantity_year
+FROM 
+	MA_NorthWindDB.dbo.[Order Details] a INNER JOIN MA_NorthWindDB.dbo.Orders b
+	on a.OrderID = b.OrderID 
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Order_AGGR c
+	on a.OrderID = c.OrderID	
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Product_AGGR d
+	on a.productID = d.productID
+where 
+	YEAR(b.OrderDate) = 1996;
+
+
 
 INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+SELECT 
+	a.*, 
+	c.NrOfProducts, 
+	c.avg_order_unitprice,
+	c.max_order_discount, 
+	c.min_order_discount, 
+	c.total_quantity,
+	d.product_quantity_year, 
+	round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1) as perc_of_product_quantity_year
+FROM 
+	MA_NorthWindDB.dbo.[Order Details] a INNER JOIN MA_NorthWindDB.dbo.Orders b
+	on a.OrderID = b.OrderID 
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Order_AGGR c
+	on a.OrderID = c.OrderID	
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Product_AGGR d
+	on a.productID = d.productID
+where 
+	YEAR(b.OrderDate) = 1997;
+
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1997(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -124,7 +165,25 @@ where
 	YEAR(b.OrderDate) = 1998;
 
 
-  
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1998(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+SELECT 
+	a.*, 
+	c.NrOfProducts, 
+	c.avg_order_unitprice,
+	c.max_order_discount, 
+	c.min_order_discount, 
+	c.total_quantity,
+	d.product_quantity_year, 
+	round((cast(a.quantity as numeric (10,2))/cast(d.product_quantity_year as numeric (10,2)))*100,1) as perc_of_product_quantity_year
+FROM 
+	MA_NorthWindDB.dbo.[Order Details] a INNER JOIN MA_NorthWindDB.dbo.Orders b
+	on a.OrderID = b.OrderID 
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Order_AGGR c
+	on a.OrderID = c.OrderID	
+	INNER JOIN MA_NorthWindDB.dbo.Order_Details_Product_AGGR d
+	on a.productID = d.productID
+where 
+	YEAR(b.OrderDate) = 1998;
 
 
 
@@ -157,7 +216,33 @@ where
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1996 ON
+  
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1996(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+SELECT 
+	OrderID, 
+	CustomerID, 
+	EmployeeID, 
+	OrderDate, 
+	CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME)as OrderDate_Month,
+	RequiredDate,
+	DATEDIFF(day, OrderDate, ShippedDate)as Days_order_shipment,
+	ShippedDate, 
+	ShipVia, 
+	Freight, 
+	ShipName, 
+	ShipAddress, 
+	ShipCity, 
+	ShipRegion, 
+	ShipPostalCode, 
+	ShipCountry,
+	CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry) as ShipAddressConcat
+FROM 
+	MA_NorthWindDB.dbo.Orders
+where 
+	YEAR(OrderDate) = 1996;
 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1996 OFF
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
@@ -187,6 +272,34 @@ where
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1997 ON
+  
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1997(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+SELECT 
+	OrderID, 
+	CustomerID, 
+	EmployeeID, 
+	OrderDate, 
+	CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME)as OrderDate_Month,
+	RequiredDate,
+	DATEDIFF(day, OrderDate, ShippedDate)as Days_order_shipment,
+	ShippedDate, 
+	ShipVia, 
+	Freight, 
+	ShipName, 
+	ShipAddress, 
+	ShipCity, 
+	ShipRegion, 
+	ShipPostalCode, 
+	ShipCountry,
+	CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry) as ShipAddressConcat
+FROM 
+	MA_NorthWindDB.dbo.Orders
+where 
+	YEAR(OrderDate) = 1997;
+
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1997 OFF
+	
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
@@ -215,6 +328,34 @@ where
 	YEAR(OrderDate) = 1998;
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF  
+
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1998 ON
+  
+INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1998(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+SELECT 
+	OrderID, 
+	CustomerID, 
+	EmployeeID, 
+	OrderDate, 
+	CAST(DATEFROMPARTS(DATEPART(year, OrderDate), DATEPART(month, OrderDate),1) as DATETIME)as OrderDate_Month,
+	RequiredDate,
+	DATEDIFF(day, OrderDate, ShippedDate)as Days_order_shipment,
+	ShippedDate, 
+	ShipVia, 
+	Freight, 
+	ShipName, 
+	ShipAddress, 
+	ShipCity, 
+	ShipRegion, 
+	ShipPostalCode, 
+	ShipCountry,
+	CONCAT(ShipAddress, ' ', ShipCity, ' ', ShipRegion, ' ', ShipPostalCode, ' ', ShipCountry) as ShipAddressConcat
+FROM 
+	MA_NorthWindDB.dbo.Orders
+where 
+	YEAR(OrderDate) = 1998;
+
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1998 OFF  
 
 
   
