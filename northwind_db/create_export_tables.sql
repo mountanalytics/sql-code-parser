@@ -82,7 +82,7 @@ FROM
 where 
 	YEAR(b.OrderDate) = 1996;
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1996(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_1996_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -124,7 +124,7 @@ FROM
 where 
 	YEAR(b.OrderDate) = 1997;
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1997(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_1997_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -165,7 +165,7 @@ where
 	YEAR(b.OrderDate) = 1998;
 
 
-INSERT INTO MA_NorthWindDB.dbo.Order_Details_Extract_1998(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
+INSERT INTO MA_NorthWindDB.dbo.Order_Details_1998_Extract(OrderID, ProductID, UnitPrice, Quantity, Discount, NrOfProducts, avg_order_unitprice, max_order_discount, min_order_discount, total_quantity, product_quantity_year, 	perc_of_product_quantity_year)
 SELECT 
 	a.*, 
 	c.NrOfProducts, 
@@ -216,9 +216,9 @@ where
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1996 ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1996_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1996(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_1996_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -242,7 +242,7 @@ FROM
 where 
 	YEAR(OrderDate) = 1996;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1996 OFF
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1996_Extract OFF
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
   
@@ -272,9 +272,9 @@ where
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1997 ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1997_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1997(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_1997_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -298,7 +298,7 @@ FROM
 where 
 	YEAR(OrderDate) = 1997;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1997 OFF
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1997_Extract OFF
 	
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract ON
@@ -329,9 +329,9 @@ where
 
 SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract OFF  
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1998 ON
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1998_Extract ON
   
-INSERT INTO MA_NorthWindDB.dbo.Orders_Extract_1998(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
+INSERT INTO MA_NorthWindDB.dbo.Orders_1998_Extract(OrderID, CustomerID, EmployeeID, OrderDate, OrderDate_Month, RequiredDate,Days_order_shipment, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, ShipAddressConcat)
 SELECT 
 	OrderID, 
 	CustomerID, 
@@ -355,7 +355,7 @@ FROM
 where 
 	YEAR(OrderDate) = 1998;
 
-SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_Extract_1998 OFF  
+SET IDENTITY_INSERT MA_NorthWindDB.dbo.Orders_1998_Extract OFF  
 
 
   
