@@ -125,7 +125,7 @@ def filter_transformations(input_string, filter_list): #Create a df with rows fr
 
 
 cleaned_functions  = function_splitter(source_yn)
-sqlfile = 'Order Details_1996.sql'
+sqlfile = 'northwind_db/Order Details_1996.sql'
 trial = sql_to_string(sqlfile)
 trial2 = filter_transformations(trial,cleaned_functions)
 print(trial2)

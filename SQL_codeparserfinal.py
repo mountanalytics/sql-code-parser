@@ -441,7 +441,7 @@ def source_blocks_tracker(sql_list):
 
 
 
-b= sql_to_string("Trial.sql")
+b= sql_to_string("C:/Users/ErwinSiegers/Documents/GitHub/sql-code-parser/northwind_db/Order Details_1998.sql")
 a = source_blocks_tracker(b)
 
 print(a)
