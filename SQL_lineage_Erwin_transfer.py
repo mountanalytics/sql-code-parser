@@ -11,7 +11,7 @@ import pandas as pd
 def SQL_database_parser(server,database):  
     config = configparser.ConfigParser()
     
-    config.read('azure_sql.ini')
+    config.read("C:/Users/MátéKaiser/OneDrive - Mount Analytics/Desktop/azure_sql.ini")
     #--------------------------------make something with pasword --------------------------------------
     Password = config["azure-sql"]["password"]
     Username = config["azure-sql"]["username"]
@@ -106,9 +106,9 @@ def extractor_info(lookup_list,astb):
     
     matched = list(zip(transformations, general_syntax))
     return matched
-df_tf = pd.read_excel("functions.xlsx")
+df_tf = pd.read_excel("C:/Users/MátéKaiser/OneDrive - Mount Analytics/Desktop/functions.xlsx")
 lookup_list = list(df_tf["Parser Keyword"])
-SQL_Connect = pd.read_excel('SQL_Connect.xlsx')
+SQL_Connect = pd.read_excel("C:/Users/MátéKaiser/OneDrive - Mount Analytics/Desktop/SQL_Connect.xlsx")
 query = """
 SELECT 
 	a.*, 
@@ -211,8 +211,8 @@ for i in range(len(table_alias)):
             if database_name not in all_database_keys and database_name != "":  
                 for j in range(len(SQL_Connect)):
                     if database_name == SQL_Connect['Database'][j]:
-                        connection = SQL_Connect['Connection'][j]
-                        break
+                       connection = SQL_Connect['Connection'][j]
+                       break
                 database_dict.update({database_name:SQL_database_parser(connection,database_name)})
             
             Alias_dict.update({alias:name})
