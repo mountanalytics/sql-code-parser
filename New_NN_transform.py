@@ -12,12 +12,14 @@ import pandas as pd
 # of the repository: pip install git+https://github.com/KaiserM11/sqlglot_ma
 
 query = """
+SELECT
     YEAR("NetDueDate"),
     CONCAT(CONCAT("CompanyCode",' - '), "CompanyCodeText"),
     TO_INT(DAYS_BETWEEN("NetDueDate", "$$IP_AgingDate$$")),
     TO_DATE("NetDueDate"),
     CONCAT(CONCAT("Country",' - '), "Countrytext"),
-    CONCAT(CONCAT("Vendor",' - '), "VendorText")
+    CONCAT(CONCAT("Vendor",' - '), "VendorText"),
+    TO_VARCHAR ("DocDate", 'YYYY-MM')
 """
 
 
@@ -33,14 +35,31 @@ def SQL_transf(query, flookup, inputl = "hana", outputl = "ma"):
     the function keywords that need to be looked for within the raw query. inputl and outputl are the input language and
     the output language respectively. 
     """
-    
     ast = parse_one(query, dialect = inputl)
+    
+    
+    org_columns = list(ast.find_all(exp.Column))
+    cleaned_columns = []
+    
+    for element in org_columns:
+        if "$" in element.name:
+            cleaned_columns.append((element.name,element.name.replace("$", "")))
+
+    
+    def transformer_column(node):
+        for element in cleaned_columns:
+            if isinstance(node, exp.Column) and node.name == element[0]:
+                return parse_one('"'+element[1]+'"')
+        return node
+
+    cleaned_tree = ast.transform(transformer_column)
+
     
     general_syntax= []
     transformations = []
     scripts = []
     for i in flookup:    
-        o = list(ast.find_all(getattr(exp, i)))
+        o = list(cleaned_tree.find_all(getattr(exp, i)))
         for element in o:
             general_syntax.append(element.sql(dialect = outputl))
             scripts.append(repr(element))
@@ -93,10 +112,12 @@ def SQL_transf(query, flookup, inputl = "hana", outputl = "ma"):
     for element in list_remove:
         mother_expressions.remove(element)
     
+
+
     return mother_expressions, scripts
 
 
 
-#pop, script = SQL_transf(query, lookup_list)
+pop, script = SQL_transf(query, lookup_list)
 
 
