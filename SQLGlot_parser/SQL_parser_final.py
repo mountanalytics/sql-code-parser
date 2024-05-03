@@ -12,11 +12,12 @@ import configparser
 odbc.lowercase = False
 
 
+"""
+Trial for extracting eveything from the subqueries and stockpiling them in the SELECT statement of the main query, first replacing
+the column names and then the table aliases to create an easier lineage extract possibility.
+"""
 
-#This file is for creating tuples out of the incoming tsql scripts for further use in visualising lineages. The variable "tuples" should contain all the source and target pairs.
-#Needs substitution of "hardcoded_dict" with database table extractor.
-
-
+#This line to be repalced by the code to extract the tables and columns from a specific database (Erwin's database extractor tool)
 hardcode_dict = [{"MA_NorthWindDB.Order Details": ["OrderID", "ProductID", "UnitPrice", "Quantity", "Discount"]}, {"dbo.Order Details": ["Product", "Sale", "Prices"]} ]
 
 
@@ -47,7 +48,7 @@ FROM
 				min(Discount) as min_order_discount, 
 				sum(quantity) as total_quantity
 			from 
-				dbo.[Order Details] ode 
+				dbo.[Order Details] ode
 			group by 
 				OrderID
 		) c
@@ -73,26 +74,20 @@ where
 
 ast = parse_one(query, read="tsql")
 
-froms = repr(ast)
 
-
-table_alias = list(ast.find_all(exp.Table))
-
-
+#Snippet for finding all table names which have an empty space in them and storing them without the " " for later use.
+table_names = list(ast.find_all(exp.Table))
 space_table = []
-for element in table_alias:
+for element in table_names:
     if " " in element.name:
         space_table.append((element.name.replace(" ",""),element.name))
 
-space_table = list(set(space_table))
+space_table = list(set(space_table)) # a list of tuples with table names paired (space removed original - original ) Eg. (OrderDetails, Order Details)
 
 
 
-
-subqueries = list(ast.find_all(exp.Subquery))
-
-    
-table_alias = list(ast.expression.find_all(exp.Table))    
+# Code snippet for extracting the table names and their aliases, used to reconstruct a tuple with structure (database+schema+name, alias )
+table_alias = list(ast.expression.find_all(exp.Table))
 alias_table = []
 for element in table_alias:
     table_alias =  element.alias
@@ -110,7 +105,11 @@ for element in table_alias:
     else:
         alias_table.append((table_catalog+"."+ table_db+"."+table_name, table_alias))
 
+#The object alias_table contains all the (database+table, alias) tuple combinations for later use and replacement.
 
+#Once again extracting the table names and aliases but this time for the tables mentioned in the subqueries of the sql script.
+#The only drawback is that this only works when the subquery is only one level nested and only one table is mentioned in the From statement of the subquery.
+#It pairs the table name with the alias of the whole subquery.
 subqueries = list(ast.find_all(exp.Subquery))   
 subquery_aliases = [] 
 if len(subqueries) > 0:
@@ -131,13 +130,26 @@ if len(subqueries) > 0:
                 subquery_aliases.append((catalog+"."+table, alias))
             else:
                 subquery_aliases.append((catalog+"."+ db+"."+table, alias))
+                
+#The object subquery_aliases is a list of tuples with the alias strcuture (database name + table name , alias of the subquery)
+
+alias_table = alias_table + subquery_aliases #Adding the table+alias tuples from the subqueries to the general alias_table object.
 
 
-alias_table = alias_table + subquery_aliases
-
+#Below code snippet iterates over the subqueries, collects the table name from the FROM statement and also paires it with the mentioned column objects.
+#pseudo_tables object is a list of dictionaries where the key is the table name from the FROM statement and the values are all the columns
+#mentioned in the subquery. Basicly creating artificial tables from the subqueries and storing them in a dictionary format. 
 pseudo_tables = []
 for element in subqueries:
-    variables = list(set([x.name for x in element.find_all(exp.Column)]))
+    
+    expressions = list(element.this.expressions)
+    column_objects = [list(x.find_all(exp.Column)) for x in expressions]
+    variables = []
+    for l in column_objects:
+        for o in l:
+            variables.append(o.name)
+            
+    variables = list(set(variables))
     alias = element.alias
     source = element.this.args["from"]
     table= source.this.name
@@ -157,34 +169,44 @@ for element in subqueries:
     temp  = {}
     temp[complete_table] = variables
     pseudo_tables.append(temp)
-        
 
-_subquery_alias=[]
-_subquery_columns=[]
+
+
+#The below snippet iterates over the subqueries and extracts all the column names with their respective aliases. It does this by going over
+#a tree branch and looking for values in the column objects that are strings. It can also identify if the column call is a star. If no alias was
+#used the code returns "NoAlias" in place of the alias.
+column_subquery_alias=[]
+name_subquery_columns=[]
 for subs in subqueries:
     columns2 = subs.this.args["expressions"]
     for element in columns2:
         temp = element.this
         while isinstance(temp, str) ==False:
             if isinstance(temp, exp.Star):
-                _subquery_columns.append("*")
+                name_subquery_columns.append("*")
                 break
             temp = temp.this
 
         if isinstance(temp, str):
-            _subquery_columns.append(temp)
+            name_subquery_columns.append(temp)
    
     for element in columns2:
         if isinstance(element, exp.Alias):
-            _subquery_alias.append(element.alias)
+            column_subquery_alias.append(element.alias)
         else:
-            _subquery_alias.append("NoAlias")
+            column_subquery_alias.append("NoAlias")
         
+subquery_matched = list(zip(name_subquery_columns, column_subquery_alias))
+#The resulting object subquery_matched, is a list of tuples with the following structure (subquery column name, alias used in subquery)
 
-subquery_matched = list(zip(_subquery_columns, _subquery_alias))
-        
+
+
+
+#SQLGlot's special functions are transformer functions which iterate over each node and make changes on the way. These functions are designed
+#for this specific code.
 
 def transformer_column(node):
+    """This first function loops over the main SELECT node and replaces column names that appear in the subqueries as aliases"""
     for element in subquery_matched:
         if isinstance(node, exp.Column) and node.name == element[1]:
             return parse_one(node.table + "." + element[0])
@@ -192,12 +214,14 @@ def transformer_column(node):
 
 
 def transformer_table(node):
+    """This function goes over the main SELECT node and replaces table aliases with either the whole table name or the subquery alias"""
     for element in alias_table:
         if isinstance(node, exp.Column) and node.table == element[1]:
             return parse_one(element[0] + "." + node.name)
     return node
 
-def transformer_original(node):
+def transformer_subquery(node):
+    """This function loops over the SELECT statement arguments and replaces any missing tables or aliases with the paired table+column pair"""
     for element in pseudo_tables:
         for i,j in element.items():
             for l in j:
@@ -205,10 +229,13 @@ def transformer_original(node):
                     return parse_one(i + "." + l)
     return node
 
-
-transformed_tree = ast.transform(transformer_column).transform(transformer_table).transform(transformer_original)
+#All three previously created functions are called together to create "transformed _trial" object that is a new SQL script with the 
+#columns and tables replaced with the source information.
+transformed_tree = ast.transform(transformer_column).transform(transformer_table).transform(transformer_subquery)
 transformed_trial =transformed_tree.sql(dialect = 'tsql')
 
+
+#Below code is to extract information and create table+column pairs of the targets that are found in the INSERT INTO statement.
 insert_obj = list(ast.find_all(exp.Insert))
 
 insert_expressions = []
@@ -235,20 +262,27 @@ for element in insert_obj:
         column_names.append(i.name)
     column_names.append(insert_into)
     insert_expressions.append(column_names)
-    
+#The object insert_expressions contains the columns mentioned in the insert expressions, and the last element of the list is the target table.
 
-target =[]
+
+#The below snippets create the target table+column combinations from the insert_expressions. Target_final is a list of target expressions.
+target_temp =[]
 for element in insert_expressions:
     temp = []
     for i in element[:-1]:
         temp.append(element[-1]+"."+i)
-    target.append(temp)
+    target_temp.append(temp)
 
 target_final =[]
-for element in target:
+for element in target_temp:
     for l in element:
         target_final.append(l)
-    
+
+
+
+
+#The below snippets create the source combinations of table and columns. First it iterates over the new transformed SQL statement and 
+#stores the column objects in new_columns.
 source = []
 new_columns =[]
 select_statement = transformed_tree.selects
@@ -256,7 +290,7 @@ for element in select_statement:
     temp = list(element.find_all(exp.Column))
     new_columns.append(temp)
     
-    
+#Iterating over the new_columns objects and creating the source pairing of table+column name from the new tree.
 for element in new_columns:
     temp = []
     for i in element:
@@ -290,29 +324,50 @@ for element in new_columns:
         else:
             temp.append(final)
     source.append(temp)
+#Source object is a list of lists containing table+column combinations for each target mentioned in the insert statement. It also pairs 
+# compound targets into one list, where the target column is made up of multiple source columns through transformations. 
 
+
+#Removing empty lists from the source lists
 for element in source:
     if element ==[]:
         source.remove(element)
 
-
+#Unpacking and pairing up the source and the target information into tuples into the structure (source, target) 
 tuples_list= []
 for k, element in enumerate(source):
     temp =[]
     position = k
     for i in element:
-        temp.append((i,target_final[position]))
+        temp.append((i,target_final[position])) #Pairing source and target based on indexing of the source and target lists.
     tuples_list.append(temp)
-
 
 
 tuples = []
 for element in tuples_list:
     for i in element:
         tuples.append(i)
+
+#The final outcome, the tuples list object is a list of paired source target tuples
+#This also unpacks the compound source targets into separate lines.
+
+
+#Extracting transformations from the new tree structure (not finished yet)
+df_tf = pd.read_excel("C:/Users/MátéKaiser/OneDrive - Mount Analytics/Desktop/functions-new.xlsx")
+lookup_list = list(df_tf["Parser Keyword"])
+    
+general_syntax= []
+transformations = []
+scripts = []
+for i in lookup_list:    
+    o = list(transformed_tree.find_all(getattr(exp, i)))
+    for element in o:
+        general_syntax.append(element.sql(dialect = "tsql"))
+        scripts.append(repr(element))
+        if len(o)>0:
+            transformations.append(i)
         
-    
-    
+matched = list(zip(transformations, general_syntax))
     
     
     
